@@ -1,50 +1,43 @@
-
 <template>
-    <div class="contenedor">
-        <form class="login">
-            <p class="h4 text-center mb-4">Iniciar Sesión</p>
-             <div class="grey-text">
-                <mdb-input label="Your email" icon="envelope" type="email"/>
-                <mdb-input label="Your password" icon="lock" type="password"/>
-            </div>
-                <center href="#">
-                    <i class="fa fa-key"></i>
-                    Forgot your password?
-                    </center>
-            <div class="text-center">
-                <mdb-btn>Login</mdb-btn>
-            </div>
-        </form>
-    </div>
+  <b-container class="bv-example-row" id="contenedor1">
+    <b-row class="justify-content-md-center" id="principal">
+        <b-col col lg="2"></b-col>
+        <b-col cols="12" md="auto">
+            <div class="panel-body">
+                <mdb-card >
+                    <mdb-card-image src="https://cdn.cheapism.com/images/iStock-1134559799.max-420x243.jpg" alt="Card image cap"></mdb-card-image>
+                    <mdb-card-body>
+                        <form>
+                            <p class="h4 text-center mb-4">Inicio de Sesión</p>
+                                <div class="grey-text">
+                                    <mdb-input label="Correo" icon="envelope" type="email"/>
+                                    <mdb-input label="Contraseña" icon="lock" type="password"/>
+                                </div>
+                                <div class="text-center">
+                                    <mdb-btn color="default">Iniciar Sesión</mdb-btn>
+                                </div>
+                        </form>        
+                    </mdb-card-body>
+                </mdb-card>
+            </div>    
+        </b-col>
+        <b-col col lg="2"></b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 export default {
-    
+
 }
 </script>
 
-<style scoped>
-.contenedor{
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    justify-content: center;
-    width: 100%;
-    min-height: 100%;
-    padding: 20px;
-    background: #21B295;
-    }
-.login{
-    border-radius: 2px 2px 5px 5px;
-  padding: 10px 20px 20px 20px;
-  width: 90%;
-  max-width: 320px;
-  background: #ffffff;
-  position:relative;
-  top: 120px;
-  padding-bottom: 80px;
-  box-shadow: 0px 1px 5px
+<style>
+
+body{
+    padding-top: 5%;
+    min-width: 364px;
+    background-color: aquamarine;
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" color="#21B295">
    <Login/>
   </div>
 </template>
@@ -15,6 +15,6 @@ export default {
 }
 </script>
 
-<style>
-  
+<style scoped>
+
 </style>
