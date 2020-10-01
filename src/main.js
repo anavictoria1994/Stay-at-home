@@ -19,7 +19,24 @@ import * as mdbvue from 'mdbvue'
 for (const component in mdbvue) {
     Vue.component(component, mdbvue[component])
 }
+//MODULOS
+import login from './components/Login.vue'
+import register from './components/Register.vue'
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [{
+            path: '/login',
+            component: login
+        },
+        {
+            path: '/register',
+            component: register
+        }
+    ]
+})
 
 new Vue({
+    router,
     render: h => h(App),
 }).$mount('#app')
