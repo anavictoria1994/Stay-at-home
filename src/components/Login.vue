@@ -4,22 +4,14 @@
         <b-col col lg="2"></b-col>
         <b-col cols="12" md="auto">
             <div class="panel-body">
-                <mdb-card >
-                    <mdb-card-image src="https://cdn.cheapism.com/images/iStock-1134559799.max-420x243.jpg" alt="Card image cap"></mdb-card-image>
-                    <mdb-card-body>
-                        <form @submit="onSubmit">
-                            <p class="h4 text-center mb-4">Inicio de Sesión</p>
-                                <div class="grey-text">
-                                    <mdb-input label="Correo" icon="envelope" type="email" v-model="form.email"/>
-
-                                    <mdb-input label="Contraseña" icon="lock" type="password" v-model="form.pass"/>
-                                </div>
-                                <div class="text-center">
-                                    <mdb-btn type="submit" color="default">Iniciar Sesión</mdb-btn>
-                                </div>
-                        </form>        
-                    </mdb-card-body>
-                </mdb-card>
+                <b-card img-alt="Card image" img-top>
+                    <img src="../images/manos.jpg">
+                    <b-card-text>
+                        <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
+                        <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
+                        <b-form-input type="email" required placeholder="Enter email"></b-form-input>
+                    </b-card-text>
+                </b-card>
             </div>    
         </b-col>
         <b-col col lg="2"></b-col>
