@@ -7,9 +7,11 @@
                 <b-card img-alt="Card image" img-top>
                     <img src="../images/manos.jpg">
                     <b-card-text>
-                        <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
-                        <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
-                        <b-form-input type="email" required placeholder="Enter email"></b-form-input>
+                        <b-form-group>
+                            <label></label>
+                            <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
+                            <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Enter email"></b-form-input>
+                        </b-form-group>
                     </b-card-text>
                 </b-card>
             </div>    
@@ -45,7 +47,7 @@ export default {
 body{
     padding-top: 5%;
     min-width: 364px;
-    background-color: aquamarine;
+    background-color: #C7FFF5;
 }
 
 </style>
