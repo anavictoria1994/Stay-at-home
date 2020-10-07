@@ -1,58 +1,84 @@
 <template>
-    <div>
-        <b-container>
-            <b-row>
-                <b-col>
-                    <form class="text-center border border-light p-5" action="#!">
+    <div class="register">
+        <b-container class="bv-example-row">
+            <b-row class="text-center">
+                <b-col></b-col>
+                <b-col cols="8">
+                    <div class="formulario">
+                        <form class="text-center border border-light p-5" action="#!">
+                            <b-card img-alt="Card image" img-top>
+                                <img src="../images/wash.jpg">
+                            </b-card>
+                            <b-card>
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <!-- Nombre -->
+                                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nombres">
+                                    </div>
+                                    <div class="col">
+                                        <!--Apellido -->
+                                        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Apellidos">
+                                    </div>
+                                </div>
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <!-- Cédula -->
+                                        <input type="number" id="defaultRegisterFormIdNumber" class="form-control" placeholder="Número de identificación">
+                                    </div>
+                                    <div class="col">
+                                        <!-- Fecha Nac -->
+                                        <input type="date" id="defaultRegisterFormBirthDate" class="form-control" placeholder="Fecha de Nacimiento">
+                                    </div>
+                                </div>
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                    <!-- Teléfono -->
+                                        <input type="number" id="defaultRegisterFormPhoneNumber" class="form-control" placeholder="Número de teléfono">
+                                    </div>
+                                    <div class="col">
+                                    <!--Direccion -->
+                                    <input type="text" id="defaultRegisterFormAdress" class="form-control" placeholder="Dirección">
+                                    </div>
+                                </div>
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo">
+                                    </div>
+                                    <div class="col">
+                                        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                    </div>
+                                </div>
 
-                    <p class="h4 mb-4">Registrarse</p>
 
-                    <div class="form-row mb-4">
-                        <div class="col">
-                            <!-- First name -->
-                            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nombre">
-                        </div>
-                        <div class="col">
-                            <!-- Last name -->
-                            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Apellido">
-                        </div>
+                                <!-- Sign up button -->
+                                <button class="btn btn-info my-4 btn-block" type="submit">Registrarse</button>
+
+                                <hr>
+
+                                <!-- Terms of service -->
+                                <p>Al hacer clic en "Registrarse" </p>
+                                    <em>estás aceptando nuestros </em> 
+                                    <a href="" target="_blank">terminos de servicio</a>
+                            </b-card>
+                        </form>
                     </div>
-
-                    <!-- E-mail -->
-                    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo">
-
-                    <!-- Password -->
-                    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-                    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                        Al menos 8 caracteres y 1 dígito
-                    </small>
-
-                    <!-- Phone number -->
-                    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Número telefónico" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                        Opcional
-                    </small>
-
-                    <!-- Newsletter -->
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-                    </div>
-
-                    <!-- Sign up button -->
-                    <button class="btn btn-info my-4 btn-block" type="submit">Registrarse</button>
-
-                    <hr>
-
-                    <!-- Terms of service -->
-                    <p>Al hacer clic en "Registrarse" </p>
-                        <em>estás aceptando nuestros </em> 
-                        <a href="" target="_blank">terminos de servicio</a>
-
-                    </form>
-                </b-col>
-                <b-col>
-                </b-col>    
+                </b-col> 
+                <b-col></b-col>   
             </b-row>        
         </b-container>
     </div>    
 </template>
+
+<script>
+export default {
+    
+}
+</script>
+
+
+<style>
+    .formulario{
+        background-color: white;
+        min-width: 250px;
+    }
+</style>

@@ -8,9 +8,13 @@
                     <img src="../images/manos.jpg">
                     <b-card-text>
                         <b-form-group>
-                            <label></label>
-                            <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
-                            <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Enter email"></b-form-input>
+                            <div class="col">
+                                <label></label>
+                                <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
+                            </div>
+                            <div class="col">
+                                <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Enter email"></b-form-input>
+                            </div>
                         </b-form-group>
                     </b-card-text>
                 </b-card>
@@ -48,6 +52,7 @@ body{
     padding-top: 5%;
     min-width: 364px;
     background-color: #C7FFF5;
+    padding-bottom: 5%;
 }
 
 </style>
