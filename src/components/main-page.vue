@@ -42,17 +42,16 @@
     
   >
     <b-carousel-slide
-      caption="QUEDATE EN CASA"
         img-src="../image/casa.png" 
        >
      </b-carousel-slide>
      
     <b-carousel-slide
-      caption="SINTOMAS"
+      
       img-src="../image/sintomas.png"
     ></b-carousel-slide>
     <b-carousel-slide
-      caption="RECOMENDACIONES"
+      
       img-src="../image/recomendaciones.png"
     ></b-carousel-slide>
  
