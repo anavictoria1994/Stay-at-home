@@ -1,17 +1,13 @@
 <template>
-  <div id="app">
-    <HelloWorld/>
+  <div id="app" color="#21B295">
+   <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/main-page.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 

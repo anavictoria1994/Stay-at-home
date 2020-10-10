@@ -14,7 +14,7 @@
         <b-nav-item href="#">Inicio</b-nav-item>
         <b-nav-item href="#" disabled>Historia Clinica</b-nav-item>
         <b-nav-item href="#" disabled>Geolocalizacion</b-nav-item>
-        <b-nav-item href="#" disabled>Registrar</b-nav-item>
+        <b-nav-item href="#"><router-link class="btn btn-primary" to= '/register'>Registrar</router-link></b-nav-item>
         <b-nav-item href="#" disabled>Chat</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
