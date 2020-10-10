@@ -1,5 +1,5 @@
 <template>
-  <b-container class="bv-example-row" id="contenedor1">
+  <b-container class="login bv-example-row" id="contenedor1">
     <b-row class="justify-content-md-center" id="principal">
         <b-col col lg="2"></b-col>
         <b-col cols="12" md="auto">
@@ -48,11 +48,9 @@ export default {
 
 <style>
 
-body{
-    padding-top: 5%;
-    min-width: 364px;
+.login{
+    padding: 8%;
     background-color: #C7FFF5;
-    padding-bottom: 5%;
 }
 
 </style>

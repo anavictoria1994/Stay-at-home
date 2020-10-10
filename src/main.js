@@ -3,7 +3,7 @@ import App from './App.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import 'bootstrap-css-only/css/bootstrap.min.css'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -16,10 +16,15 @@ Vue.use(VueRouter)
 //MODULOS
 import login from './components/Login.vue'
 import register from './components/Register.vue'
+import mainpage from './components/main-page.vue'
 
 const router = new VueRouter({
     mode: 'history',
     routes: [{
+            path: '/',
+            component: mainpage
+        },
+        {
             path: '/login',
             component: login
         },
@@ -29,6 +34,8 @@ const router = new VueRouter({
         }
     ]
 })
+
+
 
 new Vue({
     router,
