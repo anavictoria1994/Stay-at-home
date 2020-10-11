@@ -11,17 +11,22 @@
         <b-nav-item href="#"><router-link class="btn btn-primary" to = '/' > Inicio</router-link></b-nav-item>
         <b-nav-item href="#" disabled>Historia Clinica</b-nav-item>
         <b-nav-item href="#" disabled>Geolocalizacion</b-nav-item>
-        <b-nav-item href="#"><router-link class="btn btn-primary" to= '/register'>Registrar</router-link></b-nav-item>
+        <b-nav-item href="#" v-if = "this.tipo == 'D'" ><router-link class="btn btn-primary" to= '/register'>Registrar</router-link></b-nav-item>
         <b-nav-item href="#" disabled>Chat</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
       
         <b-nav-item-dropdown right>
           <template v-slot:button-content>
-            <em>{{ user }}</em>
+            <em>{{ user }} </em>
           </template>
-          <b-dropdown-item href="#">Perfil</b-dropdown-item>
-          <b-dropdown-item v-on:click = "logout">Salir</b-dropdown-item>
+          <div v-if="!login">
+            <b-dropdown-item><router-link class = "btn btn-primary" to= '/login'>Login</router-link></b-dropdown-item>
+          </div>
+          <div v-if="login">
+            <b-dropdown-item href="#">Perfil</b-dropdown-item>
+            <b-dropdown-item v-on:click = "logout">Salir</b-dropdown-item>
+          </div>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -37,14 +42,18 @@ export default {
   name: 'App',
   data(){
     return({
-      user : 'Usuario'
+      user : 'Usuario',
+      login: false,
+      tipo: 'P'
     })
   },
   mounted(){
-    axios.get('http://localhost:3000/persona/session')
+    axios.get('http://localhost:3000/session')
         .then(res => {
             if(sessionStorage.getItem('token')){
+              this.login = true
               this.user = res.data.user.nombres;
+              this.tipo = res.data.user.tipo;
             }
           })
           .catch(err => console.log(err));
@@ -55,7 +64,8 @@ export default {
         .then(res => {
             if(res.data.session!= null && !res.data.session){
             sessionStorage.removeItem('token')
-            window.location.href = '/login'
+            this.login = false
+            window.location.href = '/'
             }
             })
         .catch(err => console.log(err));

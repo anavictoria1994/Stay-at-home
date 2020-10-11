@@ -41,7 +41,7 @@ export default {
             form: {
                 email:'prueba@gmail.com',
                 pass:'456'
-            }
+            },
         }
     },
     methods:{
@@ -49,15 +49,25 @@ export default {
             evt.preventDefault()
             await axios.post('http://localhost:3000/login', this.form)
             .then(res => {
-                console.log(this)
-                sessionStorage.setItem('token', res.data.token)
-                 window.location.href ='/'})
-            .catch(err =>console.log(err));
-        
-        }
+                if(res.data.token){
+                    console.log(res)
+                    sessionStorage.setItem('token', res.data.token)
+                    window.location.href ='/'
+                }else{
+                    this.$bvToast.toast(res.data.msg, {
+                        title: 'Error',
+                        autoHidelay: 3000,
+                        variant : 'danger',
+                        solid : true
+            });
+                }
+            })
+            .catch(e => {
+                this.err = true
+                console.log(e)
+                });
+        },
     }
-
-
 }
 </script>
 

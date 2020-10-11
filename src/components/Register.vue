@@ -76,11 +76,8 @@ export default {
     beforeMount(){
         axios.get('http://localhost:3000/paciente/get')
         .then(res => {
-            if(res.data.session!= null && !res.data.session){
-            sessionStorage.removeItem('token')
-            axios.get('http://localhost:3000/logout');
-            //window.location.href ='/login'
-            }
+            console.log(res)
+
             });
     },
     

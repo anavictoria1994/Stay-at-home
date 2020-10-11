@@ -17,11 +17,13 @@ Vue.use(VueRouter)
 import login from './components/Login.vue'
 import register from './components/Register.vue'
 import mainpage from './components/main-page.vue'
+import axios from 'axios'
 
 const router = new VueRouter({
     mode: 'history',
     routes: [{
             path: '/',
+            name: 'principal',
             component: mainpage
         },
         {
@@ -34,10 +36,16 @@ const router = new VueRouter({
             component: register,
             beforeEnter: (to, from, next) => {
                 if (!sessionStorage.getItem('token')) {
-                    console.log('Hola')
                     next({ name: 'login' })
                 } else {
-                    next()
+                    axios.get('http://localhost:3000/session')
+                        .then(res => {
+                            if (res.data.user.tipo == 'D') {
+                                next()
+                            } else {
+                                next({ name: 'principal' })
+                            }
+                        })
                 }
             }
         }

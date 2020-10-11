@@ -2,32 +2,29 @@
 <template>
 <div>
   <b-carousel
-    class = "slider"
+    class = "p-4 slider"
     id="carousel-fade"
     style="text-shadow: 0px 0px 2px #000"
-    :interval = "3000"
-    indicators
-    img-width="800"
-    img-height="300"
-    
+    fade
+    :interval = "10000000"
+    indicators  
+    controls  
   >
     <b-carousel-slide
-        img-src="../image/casa.png" 
-       >
-     </b-carousel-slide>
+      img-src="../image/casa-old.png"
+    ></b-carousel-slide>
      
     <b-carousel-slide
-      
       img-src="../image/sintomas.png"
     ></b-carousel-slide>
+
     <b-carousel-slide
-      
       img-src="../image/recomendaciones.png"
     ></b-carousel-slide>
  
   </b-carousel>
 
-  <main>
+  <main class= "col-md-12">
     <section class="altura-a-b">
         <div class="row">
           <div class="col-12 col-sm-4 text-centar" >
@@ -62,18 +59,18 @@
     </section>
   </main>
   <footer>
-    <div class="row" >
-          <div class="col-6 col-sm-4 text-centar" >
+    <div class="row m-0 col-md-12" >
+          <div class="d-inline-block col-md-4" >
             <img class="logotipo-footer" src="../image/casa2.png" alt="logotipo">
           </div>
-          <div class="col-6 col-sm-4 text-centar">
+          <div class="d-inline-block col-md-4">
             <h5 style="color:#fff;">QUIENES SOMOS</h5>
             <p>Somos un equipo de profesionales apasionados cuya meta
               es brindar la mejor atencion a todas aquellas personas 
               que lo necesita y estamos dispuestos a dar lo mejor 
               para lograrlos.</p>
           </div>
-          <div class="col-6 col-sm-4 text-centar">
+          <div class="d-inline-block col-md-4">
             <h5 style="color:#fff;" > CONTACTE CON NOSOTROS </h5>
             <img src="../image/llamada.png" alt="telefono" align="center">
             <p>+57 319 569 896 /
@@ -94,8 +91,9 @@ export default {
 </script>
 
 <style>
+
 .altura-a-b{
-  padding: 100px 0;
+  padding: 4%;
 }
 .altura-texto{
   padding: 20px 0;
