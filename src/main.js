@@ -26,16 +26,23 @@ const router = new VueRouter({
         },
         {
             path: '/login',
-            component: login
+            name: 'login',
+            component: login,
         },
         {
             path: '/register',
-            component: register
+            component: register,
+            beforeEnter: (to, from, next) => {
+                if (!sessionStorage.getItem('token')) {
+                    console.log('Hola')
+                    next({ name: 'login' })
+                } else {
+                    next()
+                }
+            }
         }
     ]
 })
-
-
 
 new Vue({
     router,

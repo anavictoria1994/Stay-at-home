@@ -7,7 +7,7 @@
                 <b-card img-alt="Card image" img-top>
                     <img src="../images/manos.jpg">
                     <b-card-text>
-                        <b-form-group>
+                        <b-form @submit="onSubmit">
                             <div class="col">
                                 <label></label>
                                 <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
@@ -15,30 +15,39 @@
                             <div class="col">
                                 <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Enter email"></b-form-input>
                             </div>
-                        </b-form-group>
+                            <b-button type="submit">Entrar</b-button>
+                        </b-form>
                     </b-card-text>
                 </b-card>
             </div>    
         </b-col>
         <b-col col lg="2"></b-col>
     </b-row>
+
   </b-container>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data(){
         return{
             form: {
-                email:'',
-                pass:''
+                email:'prueba@gmail.com',
+                pass:'456'
             }
         }
     },
     methods:{
-        onSubmit(evt){
+        async onSubmit(evt){
             evt.preventDefault()
-            console.log(JSON.stringify(this.form))
+            await axios.post('http://localhost:3000/login', this.form)
+            .then(res => {
+                console.log(this)
+                sessionStorage.setItem('token', res.data.token)
+                 window.location.href ='/'})
+            .catch(err =>console.log(err));
+        
         }
     }
 
