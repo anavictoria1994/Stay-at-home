@@ -20,5 +20,7 @@ module.exports = {
 
                 return options
             })
-    }
+    },
+    publicPath: process.env.NODE_ENV === 'production' ?
+        publicPath : '/Stay-at-home/'
 }
