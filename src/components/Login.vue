@@ -1,11 +1,10 @@
 <template>
-  <b-container class="login-view login" id="contenedor1">
+  <b-container class="login" id="contenedor1">
     <b-row class="justify-content-md-center" id="principal">
         <b-col col lg="2"></b-col>
         <b-col cols="12" md="auto">
             <div class="panel-body">
-                <b-card img-alt="Card image" img-top>
-                        <img src="../images/manos.jpg">
+                <b-card img-alt="Card image" img-src = '../images/manos.jpg'>
                     <b-card>
                         <b-card-text>
                                 <form @submit="onSubmit">

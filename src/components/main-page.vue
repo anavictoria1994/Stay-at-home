@@ -2,7 +2,7 @@
 <template>
 <div>
   <b-carousel
-  
+    class = "slider"
     id="carousel-fade"
     style="text-shadow: 0px 0px 2px #000"
     :interval = "3000"
