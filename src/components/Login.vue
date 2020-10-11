@@ -1,5 +1,5 @@
 <template>
-  <b-container class="login-view" id="contenedor1">
+  <b-container class="login-view login" id="contenedor1">
     <b-row class="justify-content-md-center" id="principal">
         <b-col col lg="2"></b-col>
         <b-col cols="12" md="auto">
@@ -30,23 +30,31 @@
         </b-col>
         <b-col col lg="2"></b-col>
     </b-row>
+
   </b-container>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data(){
         return{
             form: {
-                email:'',
-                pass:''
+                email:'prueba@gmail.com',
+                pass:'456'
             }
         }
     },
     methods:{
-        onSubmit(evt){
+        async onSubmit(evt){
             evt.preventDefault()
-            console.log(JSON.stringify(this.form))
+            await axios.post('http://localhost:3000/login', this.form)
+            .then(res => {
+                console.log(this)
+                sessionStorage.setItem('token', res.data.token)
+                 window.location.href ='/'})
+            .catch(err =>console.log(err));
+        
         }
     }
 
@@ -56,11 +64,12 @@ export default {
 
 <style>
 
-body{
-    padding-top: 5%;
+.login{
+    width: 100%;
+    height: auto;
     min-width: 438px;
     background-color: #C7FFF5;
-    padding-bottom: 5%;
+    padding: 8%;
 }
 
 </style>
