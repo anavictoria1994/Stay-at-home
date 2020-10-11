@@ -65,6 +65,7 @@ export default {
             if(res.data.session!= null && !res.data.session){
             sessionStorage.removeItem('token')
             this.login = false
+            console.log(process.env.BASE_URL)
             window.location.href = process.env.BASE_URL
             }
             })
