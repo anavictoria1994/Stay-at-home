@@ -52,7 +52,7 @@ export default {
                 if(res.data.token){
                     console.log(res)
                     sessionStorage.setItem('token', res.data.token)
-                    window.location.href ='/'
+                    window.location.href = process.env.BASE_URL
                 }else{
                     this.$bvToast.toast(res.data.msg, {
                         title: 'Error',
@@ -70,7 +70,7 @@ export default {
                         solid : true
                 });
                 console.log(e)
-            });
+                });
         },
     }
 }
