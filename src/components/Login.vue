@@ -63,9 +63,14 @@ export default {
                 }
             })
             .catch(e => {
-                this.err = true
-                console.log(e)
+                this.$bvToast.toast('Desconectado del servidor', {
+                        title: 'Error',
+                        autoHidelay: 3000,
+                        variant : 'danger',
+                        solid : true
                 });
+                console.log(e)
+            });
         },
     }
 }
