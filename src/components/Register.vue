@@ -70,15 +70,15 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { API } from '../api'
 export default {
     name: 'register',
     beforeMount(){
-        axios.get('http://localhost:3000/paciente/get')
+        API.get('paciente/get')
         .then(res => {
             console.log(res)
-
-            });
+         })
+        .catch(err => console.log(err))
     },
     
 }

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { API } from './api'
 export default {
   name: 'App',
   data(){
@@ -48,7 +48,7 @@ export default {
     })
   },
   mounted(){
-    axios.get('http://localhost:3000/session')
+    API.get('session')
         .then(res => {
             if(sessionStorage.getItem('token')){
               this.login = true
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     logout(){
-      axios.get('http://localhost:3000/logout')
+      API.get('/logout')
         .then(res => {
             if(res.data.session!= null && !res.data.session){
             sessionStorage.removeItem('token')

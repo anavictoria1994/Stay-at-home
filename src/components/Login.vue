@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { API } from '../api'
 export default {
     data(){
         return{
@@ -47,7 +47,7 @@ export default {
     methods:{
         async onSubmit(evt){
             evt.preventDefault()
-            await axios.post('http://localhost:3000/login', this.form)
+            await API.post('login', this.form)
             .then(res => {
                 if(res.data.token){
                     console.log(res)
