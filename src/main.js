@@ -14,7 +14,8 @@ Vue.use(IconsPlugin)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
-//MODULOS
+console.log(process.env.NODE_ENV)
+    //MODULOS
 import login from './components/Login.vue'
 import register from './components/Register.vue'
 import mainpage from './components/main-page.vue'
