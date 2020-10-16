@@ -5,7 +5,7 @@
                 <b-col></b-col>
                 <b-col cols="8">
                     <div class="formulario">
-                        <form class="text-center border border-light p-5" action="#!">
+                        <form @submit="onSubmit" class="text-center border border-light p-5" action="#!">
                             <b-card img-alt="Card image" img-top>
                                 <img src="../images/wash.jpg">
                             </b-card>
@@ -13,39 +13,39 @@
                                 <div class="form-row mb-4">
                                     <div class="col">
                                         <!-- Nombre -->
-                                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nombres">
+                                        <input type="text" v-model="form.nombres" id="RegisterFormFirstName" class="form-control" placeholder="Nombres">
                                     </div>
                                     <div class="col">
                                         <!--Apellido -->
-                                        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Apellidos">
+                                        <input type="text" v-model="form.apellidos" id="RegisterFormLastName" class="form-control" placeholder="Apellidos">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
                                         <!-- Cédula -->
-                                        <input type="number" id="defaultRegisterFormIdNumber" class="form-control" placeholder="Número de identificación">
+                                        <input type="number" v-model="form.cedula" id="RegisterFormIdNumber" class="form-control" placeholder="Número de identificación">
                                     </div>
                                     <div class="col">
                                         <!-- Fecha Nac -->
-                                        <input type="date" id="defaultRegisterFormBirthDate" class="form-control" placeholder="Fecha de Nacimiento">
+                                        <input type="date" v-model="form.fecha_nacimiento" id="RegisterFormBirthDate" class="form-control" placeholder="Fecha de Nacimiento">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
                                     <!-- Teléfono -->
-                                        <input type="number" id="defaultRegisterFormPhoneNumber" class="form-control" placeholder="Número de teléfono">
+                                        <input type="number" v-model="form.telefono" id="RegisterFormPhoneNumber" class="form-control" placeholder="Número de teléfono">
                                     </div>
                                     <div class="col">
                                     <!--Direccion -->
-                                    <input type="text" id="defaultRegisterFormAdress" class="form-control" placeholder="Dirección">
+                                    <input type="text" v-model="form.direccion" id="RegisterFormAdress" class="form-control" placeholder="Dirección">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo">
+                                        <input type="email" v-model="form.email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo">
                                     </div>
                                     <div class="col">
-                                        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                        <input type="password" v-model="form.pass" id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                                     </div>
                                 </div>
 
@@ -73,13 +73,32 @@
 import { API } from '../api'
 export default {
     name: 'register',
-    beforeMount(){
-        API.get('paciente/get')
-        .then(res => {
-            console.log(res)
-         })
-        .catch(err => console.log(err))
+    data(){
+        return{
+            form:{
+                cedula:'',
+                nombres:'',
+                apellidos:'',
+                email:'',
+                pass:'',
+                tipo:'P',
+                fecha_nacimiento:'',
+                direccion:'',
+                telefono:'',
+                doctor:'',
+                informeP:null
+            }
+        }
     },
+    methods:{
+        async onSubmit(evt){
+            evt.preventDefault()
+            API.post('/paciente/register', this.form)
+            .then(res => console.log(res, 'registrado'))
+            .catch(err => console.log(err))
+        }
+    },
+
     
 }
 </script>

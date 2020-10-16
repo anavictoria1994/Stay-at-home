@@ -100,7 +100,7 @@ export default {
 }
 
 footer{
-  background-color: forestgreen;
+  background-color: #20BEC1;
   padding: 50px 0;
   text-align: center;
 }
