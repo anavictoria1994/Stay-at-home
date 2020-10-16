@@ -1,6 +1,6 @@
 <template>
   <div id="app" color="#21B295">
-    <b-navbar toggleable="lg" type="dark" variant="success">
+    <b-navbar class="navegacion" toggleable="lg" type="dark">
     <div class="container">
     <b-navbar-brand href="#">Stay at Home</b-navbar-brand>
 
@@ -8,10 +8,10 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#"><router-link class="btn btn-primary" to = '/' > Inicio</router-link></b-nav-item>
+        <b-nav-item ><router-link class="nav-link active" to = '/' > Inicio</router-link></b-nav-item>
         <b-nav-item href="#" disabled>Historia Clinica</b-nav-item>
         <b-nav-item href="#" disabled>Geolocalizacion</b-nav-item>
-        <b-nav-item href="#" v-if = "this.tipo == 'D'" ><router-link class="btn btn-primary" to= '/register'>Registrar</router-link></b-nav-item>
+        <b-nav-item v-if = "this.tipo == 'D'" ><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
         <b-nav-item href="#" disabled>Chat</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
@@ -21,7 +21,7 @@
             <em>{{ user }} </em>
           </template>
           <div v-if="!login">
-            <b-dropdown-item><router-link class = "btn btn-primary" to= '/login'>Login</router-link></b-dropdown-item>
+            <b-dropdown-item><router-link to= '/login'>Login</router-link></b-dropdown-item>
           </div>
           <div v-if="login">
             <b-dropdown-item href="#">Perfil</b-dropdown-item>
@@ -83,4 +83,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.navegacion{
+  background-color: #20BEC1;
+}
+
 </style>
