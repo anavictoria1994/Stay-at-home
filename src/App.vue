@@ -48,15 +48,18 @@ export default {
     })
   },
   mounted(){
-    API.get('session')
+    try{
+    API.post('session', {"token": sessionStorage.getItem('token')})
         .then(res => {
-            if(sessionStorage.getItem('token')){
               this.login = true
               this.user = res.data.user.nombres;
               this.tipo = res.data.user.tipo;
-            }
+            
           })
           .catch(err => console.log(err));
+    }catch(e){
+      window.location.href = process.env.BASE_URL
+    }
   },
   methods: {
     logout(){

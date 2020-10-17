@@ -50,9 +50,10 @@ export default {
             await API.post('login', this.form)
             .then(res => {
                 if(res.data.token){
-                    console.log(res)
-                    sessionStorage.setItem('token', res.data.token)
-                    window.location.href = process.env.BASE_URL
+                    if (!sessionStorage.getItem('token')){
+                        sessionStorage.setItem('token', res.data.token)
+                        window.location.href = process.env.BASE_URL
+                    }
                 }else{
                     this.$bvToast.toast(res.data.msg, {
                         title: 'Error',

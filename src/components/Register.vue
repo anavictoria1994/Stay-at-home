@@ -93,7 +93,6 @@ export default {
             evt.preventDefault()
             await API.post('paciente/register', this.form)
             .then(res => {
-                console.log('Agregado')
                 if(res.data.agregado){
                     this.$bvToast.toast(res.data.msg, {
                         title: 'Agregado',
