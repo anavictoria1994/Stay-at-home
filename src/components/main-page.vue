@@ -6,7 +6,7 @@
     id="carousel-fade"
     style="text-shadow: 0px 0px 2px #000"
     fade
-    :interval = "10000000"
+    :interval = "3000"
     indicators  
     controls  
   >
