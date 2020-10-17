@@ -81,25 +81,52 @@ export default {
                 apellidos:'',
                 email:'',
                 pass:'',
-                tipo:'P',
                 fecha_nacimiento:'',
                 direccion:'',
                 telefono:'',
                 doctor:'',
-                informeP:null
             }
         }
     },
     methods:{
         async onSubmit(evt){
             evt.preventDefault()
-            API.post('/paciente/register', this.form)
-            .then(res => console.log(res, 'registrado'))
-            .catch(err => console.log(err))
+            await API.post('paciente/register', this.form)
+            .then(res => {
+                console.log('Agregado')
+                if(res.data.agregado){
+                    this.$bvToast.toast(res.data.msg, {
+                        title: 'Agregado',
+                        autoHidelay: 3000,
+                        variant : 'success',
+                        solid : true
+                    });
+                }else{
+                    this.$bvToast.toast(res.data.msg, {
+                        title: 'Error',
+                        autoHidelay: 3000,
+                        variant : 'danger',
+                        solid : true
+                    });
+                }
+            })
+            .catch(e => {
+                this.$bvToast.toast('Desconectado del servidor', {
+                        title: 'Error',
+                        autoHidelay: 3000,
+                        variant : 'danger',
+                        solid : true
+                });
+                console.log(e)
+                });
         }
     },
+    mounted(){
+        API.get('session')
+        .then(res => this.form.doctor = res.data.user.cedula)
+        .catch(err => console.log(err))
+    }
 
-    
 }
 </script>
 
