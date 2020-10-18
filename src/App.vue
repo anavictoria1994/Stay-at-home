@@ -49,14 +49,16 @@ export default {
   },
   mounted(){
     try{
-    API.post('session', {"token": sessionStorage.getItem('token')})
-        .then(res => {
-              this.login = true
-              this.user = res.data.user.nombres;
-              this.tipo = res.data.user.tipo;
-            
-          })
-          .catch(err => console.log(err));
+      if (sessionStorage.getItem('token')){
+        API.post('session', {"token": sessionStorage.getItem('token')})
+            .then(res => {
+                  this.login = true
+                  this.user = res.data.user.nombres;
+                  this.tipo = res.data.user.tipo;
+                
+              })
+              .catch(err => console.log(err));
+        }
     }catch(e){
       window.location.href = process.env.BASE_URL
     }

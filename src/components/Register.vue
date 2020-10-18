@@ -120,10 +120,11 @@ export default {
                 });
         }
     },
-    mounted(){
-        API.get('session')
+    async mounted(){
+        await API.post('session', {token: sessionStorage.getItem('token')})
         .then(res => this.form.doctor = res.data.user.cedula)
         .catch(err => console.log(err))
+        console.log(this.form)
     }
 
 }

@@ -40,9 +40,10 @@ const router = new VueRouter({
                 if (!sessionStorage.getItem('token')) {
                     next({ name: 'login' })
                 } else {
-                    API.get('session')
+                    API.post('session', { token: sessionStorage.getItem('token') })
                         .then(res => {
-                            if (res.data.user.tipo == 'D') {
+                            console.log(res)
+                            if (res.data.user.tipo === 'D') {
                                 next()
                             } else {
                                 next({ name: 'main' })
