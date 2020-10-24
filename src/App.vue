@@ -45,6 +45,7 @@
 
 import { API } from './api'
 export default {
+  inheritAttrs: true,
   name: 'App',
   data(){
     return({
@@ -56,7 +57,7 @@ export default {
   mounted(){
     try{
       if (sessionStorage.getItem('token')){
-        API.get('session', {"token": sessionStorage.getItem('token')})
+        API.post('session', {"token": sessionStorage.getItem('token')})
             .then(res => {
                   this.login = true
                   this.user = res.data.user.nombres;

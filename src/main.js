@@ -31,7 +31,7 @@ const router = new VueRouter({
     routes: [{
             path: '/',
             name: 'main',
-            component: mainpage
+            component: mainpage,
         },
 
         {
@@ -79,7 +79,7 @@ const router = new VueRouter({
         },
         {
             path: '/recover',
-            name:'recover',
+            name: 'recover',
             component: recover,
         },
 
@@ -105,7 +105,7 @@ const router = new VueRouter({
 
         {
             path: '/chat',
-            name:'chat',
+            name: 'chat',
             component: chat,
         }
     ]
