@@ -7,12 +7,17 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
+      <b-navbar-nav v-if="login">
         <b-nav-item ><router-link class="nav-link active" to = '/' > Inicio</router-link></b-nav-item>
-        <b-nav-item href="#" disabled>Historia Clinica</b-nav-item>
-        <b-nav-item href="#" disabled>Geolocalizacion</b-nav-item>
-        <b-nav-item v-if = "this.tipo == 'D'" ><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
-        <b-nav-item href="#" disabled>Chat</b-nav-item>
+        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
+        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/localization'>Tu ubicación</router-link></b-nav-item>
+        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/informes'>Informes</router-link></b-nav-item>
+        <b-nav-item href="#"><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
+        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/chat'>Chat</router-link></b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav v-if="!login">
+        <b-nav-item >Sobre nosotros </b-nav-item>
+        <b-nav-item >Sobre nosotros </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
       
@@ -37,8 +42,10 @@
 </template>
 
 <script>
+
 import { API } from './api'
 export default {
+  inheritAttrs: true,
   name: 'App',
   data(){
     return({
@@ -48,15 +55,20 @@ export default {
     })
   },
   mounted(){
-    API.get('session')
-        .then(res => {
-            if(sessionStorage.getItem('token')){
-              this.login = true
-              this.user = res.data.user.nombres;
-              this.tipo = res.data.user.tipo;
-            }
-          })
-          .catch(err => console.log(err));
+    try{
+      if (sessionStorage.getItem('token')){
+        API.post('session', {"token": sessionStorage.getItem('token')})
+            .then(res => {
+                  this.login = true
+                  this.user = res.data.user.nombres;
+                  this.tipo = res.data.user.tipo;
+                
+              })
+              .catch(err => console.log(err));
+        }
+    }catch(e){
+      window.location.href = process.env.BASE_URL
+    }
   },
   methods: {
     logout(){
@@ -72,7 +84,8 @@ export default {
         .catch(err => console.log(err));
     }
   }
-}
+} 
+
 </script>
 
 <style>
@@ -86,6 +99,10 @@ export default {
 
 .navegacion{
   background-color: #20BEC1;
+}
+
+.nav-link{
+  font: Arial;
 }
 
 </style>

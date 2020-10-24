@@ -1,5 +1,5 @@
 {
-  "name": "Stay-at-home",
+  "name": "stay-at-home",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -44,4 +44,5 @@
     "last 2 versions",
     "not dead"
   ]
+  
 }

@@ -86,8 +86,9 @@
 
 <script>
 export default {
-  name: 'main-page'
-}
+  name: 'main-page',
+  
+  }
 </script>
 
 <style>

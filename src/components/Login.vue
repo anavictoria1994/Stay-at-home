@@ -4,9 +4,7 @@
         <b-col col lg="2"></b-col>
         <b-col cols="12" md="auto">
             <div class="panel-body">
-                <b-card img-alt="Card image" img-src = '../images/manos.jpg'>
-                    <b-card>
-                        <b-card-text>
+                <b-card img-alt="Card image" img-src = '../image/manos.jpg'>
                                 <form @submit="onSubmit">
                                     <div class="form-row mb-4">
                                         <div class="col">
@@ -22,8 +20,6 @@
                                         <b-button variant="info" type="submit">Iniciar Sesión</b-button>
                                     </div>
                                 </form>
-                        </b-card-text>
-                    </b-card>
                 </b-card>   
             </div>    
         </b-col>
@@ -50,9 +46,10 @@ export default {
             await API.post('login', this.form)
             .then(res => {
                 if(res.data.token){
-                    console.log(res)
-                    sessionStorage.setItem('token', res.data.token)
-                    window.location.href = process.env.BASE_URL
+                    if (!sessionStorage.getItem('token')){
+                        sessionStorage.setItem('token', res.data.token)
+                        window.location.href = process.env.BASE_URL
+                    }
                 }else{
                     this.$bvToast.toast(res.data.msg, {
                         title: 'Error',
@@ -81,9 +78,8 @@ export default {
 .login{
     width: 100%;
     height: auto;
-    min-width: 438px;
-    background-color: #C7FFF5;
-    padding: 8%;
+    background-color: white;
+    padding: 5%;
 }
 
 </style>

@@ -14,10 +14,16 @@ Vue.use(IconsPlugin)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
+
 //MODULOS
 import login from './components/Login.vue'
 import register from './components/Register.vue'
 import mainpage from './components/main-page.vue'
+import recover from './components/Recover.vue'
+import informes from './components/Informes.vue'
+import clinicalHistory from './components/Historia-Clinica.vue'
+import localization from './components/Localization.vue'
+import chat from './components/Chat.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -25,7 +31,7 @@ const router = new VueRouter({
     routes: [{
             path: '/',
             name: 'main',
-            component: mainpage
+            component: mainpage,
         },
 
         {
@@ -33,6 +39,25 @@ const router = new VueRouter({
             name: 'login',
             component: login,
         },
+
+        {
+            path: '/informes',
+            name: 'informes',
+            component: informes,
+        },
+
+        {
+            path: '/historia-clinica',
+            name: 'historia-clinica',
+            component: clinicalHistory,
+        },
+
+        {
+            path: '/localization',
+            name: 'localization',
+            component: localization,
+        },
+
         {
             path: '/register',
             component: register,
@@ -40,9 +65,10 @@ const router = new VueRouter({
                 if (!sessionStorage.getItem('token')) {
                     next({ name: 'login' })
                 } else {
-                    API.get('session')
+                    API.post('session', { token: sessionStorage.getItem('token') })
                         .then(res => {
-                            if (res.data.user.tipo == 'D') {
+                            console.log(res)
+                            if (res.data.user.tipo === 'D') {
                                 next()
                             } else {
                                 next({ name: 'main' })
@@ -50,6 +76,37 @@ const router = new VueRouter({
                         })
                 }
             }
+        },
+        {
+            path: '/recover',
+            name: 'recover',
+            component: recover,
+        },
+
+        {
+            path: '/informes',
+            component: informes,
+            beforeEnter: (to, from, next) => {
+                if (!sessionStorage.getItem('token')) {
+                    next({ name: 'login' })
+                } else {
+                    API.post('session', { token: sessionStorage.getItem('token') })
+                        .then(res => {
+                            console.log(res)
+                            if (res.data.user.tipo === 'D') {
+                                next()
+                            } else {
+                                next({ name: 'main' })
+                            }
+                        })
+                }
+            }
+        },
+
+        {
+            path: '/chat',
+            name: 'chat',
+            component: chat,
         }
     ]
 })

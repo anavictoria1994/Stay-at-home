@@ -1,14 +1,11 @@
 <template>
     <div class="register">
-        <b-container class="bv-example-row">
-            <b-row class="text-center">
-                <b-col></b-col>
-                <b-col cols="8">
+        <b-container class="contenedor1">
                     <div class="formulario">
                         <form @submit="onSubmit" class="text-center border border-light p-5" action="#!">
-                            <b-card img-alt="Card image" img-top>
-                                <img src="../images/wash.jpg">
-                            </b-card>
+                            <div class="img_container">
+                                <img src="../image/wash.jpg" class="top_image">
+                            </div>
                             <b-card>
                                 <div class="form-row mb-4">
                                     <div class="col">
@@ -24,6 +21,7 @@
                                     <div class="col">
                                         <!-- Cédula -->
                                         <input type="number" v-model="form.cedula" id="RegisterFormIdNumber" class="form-control" placeholder="Número de identificación">
+                                        <b-form-invalid-feedback id="input-live-feedback"> Este campo es obligatorio </b-form-invalid-feedback>
                                     </div>
                                     <div class="col">
                                         <!-- Fecha Nac -->
@@ -33,19 +31,19 @@
                                 <div class="form-row mb-4">
                                     <div class="col">
                                     <!-- Teléfono -->
-                                        <input type="number" v-model="form.telefono" id="RegisterFormPhoneNumber" class="form-control" placeholder="Número de teléfono">
+                                        <input type="number" v-model="form.telefono"  id="RegisterFormPhoneNumber" class="form-control" placeholder="Número de teléfono">
                                     </div>
                                     <div class="col">
                                     <!--Direccion -->
-                                    <input type="text" v-model="form.direccion" id="RegisterFormAdress" class="form-control" placeholder="Dirección">
+                                    <input type="text" v-model="form.direccion"  id="RegisterFormAdress" class="form-control" placeholder="Dirección">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <input type="email" v-model="form.email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo">
+                                        <input type="email" v-model="form.email"  id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo">
                                     </div>
                                     <div class="col">
-                                        <input type="password" v-model="form.pass" id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                        <input type="password" v-model="form.pass"  id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                                     </div>
                                 </div>
 
@@ -62,9 +60,6 @@
                             </b-card>
                         </form>
                     </div>
-                </b-col> 
-                <b-col></b-col>   
-            </b-row>        
         </b-container>
     </div>    
 </template>
@@ -82,6 +77,7 @@ export default {
                 email:'',
                 pass:'',
                 fecha_nacimiento:'',
+                tipo: 'P',
                 direccion:'',
                 telefono:'',
                 doctor:'',
@@ -93,7 +89,6 @@ export default {
             evt.preventDefault()
             await API.post('paciente/register', this.form)
             .then(res => {
-                console.log('Agregado')
                 if(res.data.agregado){
                     this.$bvToast.toast(res.data.msg, {
                         title: 'Agregado',
@@ -121,10 +116,11 @@ export default {
                 });
         }
     },
-    mounted(){
-        API.get('session')
+    async mounted(){
+        await API.post('session', {token: sessionStorage.getItem('token')})
         .then(res => this.form.doctor = res.data.user.cedula)
         .catch(err => console.log(err))
+        console.log(this.form)
     }
 
 }
@@ -132,8 +128,21 @@ export default {
 
 
 <style>
+    .contenedor1{
+        position:relative;
+    }
     .formulario{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        max-width: 700px;
         background-color: white;
         min-width: 250px;
+    }
+    .top_image{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 </style>
