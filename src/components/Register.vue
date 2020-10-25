@@ -1,7 +1,7 @@
-<template>
+﻿<template>
     <div class="register">
         <b-container class="contenedor1">
-                    <div class="formulario">
+                    <div class="d-flex justify-content-center">
                         <form @submit="onSubmit" class="text-center border border-light p-5" action="#!">
                             <div class="img_container">
                                 <img src="../image/wash.jpg" class="top_image">
@@ -130,15 +130,6 @@ export default {
 <style>
     .contenedor1{
         position:relative;
-    }
-    .formulario{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        max-width: 700px;
-        background-color: white;
-        min-width: 250px;
     }
     .top_image{
         width: 100%;
