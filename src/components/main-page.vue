@@ -29,9 +29,9 @@
         <div class="row">
           <div class="col-12 col-sm-4 text-centar" >
             <img class="img-fluid shadow-lg" src="../image/lavatelasmanos.jpg" alt="Banner 01">
-            <h5 class="altura-texto"> Lavate las manos </h5>
+            <h5 class="altura-texto"> Lávate las manos </h5>
             <p>Lávate las manos con frecuencia. Usa agua y jabón o un 
-              desinfectante de manos a base de alcohol cuantas veces 
+              desinfectante de manos a base de alcohol, cuantas veces 
               sea necesario.</p>
           </div>
           <div class="col-12 col-sm-4 text-centar">
@@ -45,8 +45,8 @@
             <img class="img-fluid shadow-lg" src="../image/distancia.png" alt="Banner 03">
             <h5 class="altura-texto">Distanciamiento</h5>
             <p>Mantén una distancia de seguridad con personas que tosan 
-              o estornuden, recerda que en todo momento estas expuesto 
-              al virus por lo tanto se cuidadoso.</p>
+              o estornuden, recuerda que en todo momento estás expuesto 
+              al virus, por lo tanto sé cuidadoso.</p>
           </div>
         </div>
     </section>
@@ -64,14 +64,14 @@
             <img class="logotipo-footer" src="../image/casa2.png" alt="logotipo">
           </div>
           <div class="d-inline-block col-md-4">
-            <h5 style="color:#fff;">QUIENES SOMOS</h5>
+            <h5 style="color:#fff;">QUÍENES SOMOS</h5>
             <p>Somos un equipo de profesionales apasionados cuya meta
-              es brindar la mejor atencion a todas aquellas personas 
-              que lo necesita y estamos dispuestos a dar lo mejor 
-              para lograrlos.</p>
+              es brindar la mejor atención a todas aquellas personas 
+              que lo necesitan y estamos dispuestos a dar lo mejor 
+              para lograrlo.</p>
           </div>
           <div class="d-inline-block col-md-4">
-            <h5 style="color:#fff;" > CONTACTE CON NOSOTROS </h5>
+            <h5 style="color:#fff;" > CONTÁCTESE CON NOSOTROS </h5>
             <img src="../image/llamada.png" alt="telefono" align="center">
             <p>+57 319 569 896 /
               425 36 96</p>

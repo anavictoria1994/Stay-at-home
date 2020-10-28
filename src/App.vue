@@ -12,6 +12,7 @@
         <b-nav-item href="#" ><router-link  class="nav-link active" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
         <b-nav-item href="#" ><router-link  class="nav-link active" to= '/localization'>Tu ubicación</router-link></b-nav-item>
         <b-nav-item href="#" ><router-link  class="nav-link active" to= '/informes'>Informes</router-link></b-nav-item>
+        <b-nav-item href="#"><router-link  class="nav-link active" to= '/pacientes'>Pacientes</router-link></b-nav-item>
         <b-nav-item href="#"><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
         <b-nav-item href="#" ><router-link  class="nav-link active" to= '/chat'>Chat</router-link></b-nav-item>
       </b-navbar-nav>
