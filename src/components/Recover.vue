@@ -1,6 +1,6 @@
-<template>
-     <b-container> 
-        <b-row class="justify-content-md-center" id="principal">
+<template id="recover" class="recover-body">
+    <b-container class="recover-content"> 
+        <b-row class="justify-content-md-center" id="recover">
             <b-col col lg="2"></b-col>
                 <b-col cols="12" md="auto">
                     <form @submit="onSubmit" class="text-center form-control-md p-5" action="#!">
@@ -37,5 +37,8 @@
 </script>
 
 <style>
-
+.recover-content{
+    width: 100%;
+    height: 100%;
+}
 </style>

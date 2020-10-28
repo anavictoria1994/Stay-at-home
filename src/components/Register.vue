@@ -1,49 +1,48 @@
 ﻿<template>
-    <div class="register">
-        <b-container class="contenedor1">
-                    <div class="d-flex justify-content-center">
-                        <form @submit="onSubmit" class="text-center border border-light p-5" action="#!">
+    <b-container> 
+        <b-row class="justify-content-md-center" id="recover">
+                <b-col cols="12" md="auto">
+                        <form @submit="onSubmit" class="text-center p-5" action="#!">
                             <div class="img_container">
-                                <img src="../image/wash.jpg" class="top_image">
+                                <img src="../image/antibacterial.jpg" class="top_image">
                             </div>
                             <b-card>
                                 <div class="form-row mb-4">
                                     <div class="col">
                                         <!-- Nombre -->
-                                        <input type="text" v-model="form.nombres" id="RegisterFormFirstName" class="form-control" placeholder="Nombres">
+                                        <input type="text" v-model="form.nombres"  class="form-control" required placeholder="Nombres">
                                     </div>
                                     <div class="col">
                                         <!--Apellido -->
-                                        <input type="text" v-model="form.apellidos" id="RegisterFormLastName" class="form-control" placeholder="Apellidos">
+                                        <input type="text" v-model="form.apellidos"  class="form-control" required placeholder="Apellidos">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
                                         <!-- Cédula -->
-                                        <input type="number" v-model="form.cedula" id="RegisterFormIdNumber" class="form-control" placeholder="Número de identificación">
-                                        <b-form-invalid-feedback id="input-live-feedback"> Este campo es obligatorio </b-form-invalid-feedback>
+                                        <input type="number" v-model="form.cedula"  class="form-control" required placeholder="Número de identificación">
                                     </div>
                                     <div class="col">
                                         <!-- Fecha Nac -->
-                                        <input type="date" v-model="form.fecha_nacimiento" id="RegisterFormBirthDate" class="form-control" placeholder="Fecha de Nacimiento">
+                                        <input type="date" v-model="form.fecha_nacimiento"  class="form-control" requiered placeholder="Fecha de Nacimiento">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
                                     <!-- Teléfono -->
-                                        <input type="number" v-model="form.telefono"  id="RegisterFormPhoneNumber" class="form-control" placeholder="Número de teléfono">
+                                        <input type="number" v-model="form.telefono"  class="form-control" required placeholder="Número de teléfono">
                                     </div>
                                     <div class="col">
                                     <!--Direccion -->
-                                    <input type="text" v-model="form.direccion"  id="RegisterFormAdress" class="form-control" placeholder="Dirección">
+                                    <input type="text" v-model="form.direccion"  class="form-control" required placeholder="Dirección">
                                     </div>
                                 </div>
                                 <div class="form-row mb-4">
                                     <div class="col">
-                                        <input type="email" v-model="form.email"  id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo">
+                                        <input type="email" v-model="form.email" class="form-control mb-4" required placeholder="Correo">
                                     </div>
                                     <div class="col">
-                                        <input type="password" v-model="form.pass"  id="defaultRegisterFormPassword" class="form-control" placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                        <input type="password" v-model="form.pass" class="form-control" required placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                                     </div>
                                 </div>
 
@@ -56,12 +55,12 @@
                                 <!-- Terms of service -->
                                 <p>Al hacer clic en "Registrarse" </p>
                                     <em>estás aceptando nuestros </em> 
-                                    <a href="" target="_blank">terminos de servicio</a>
+                                    <a href="" target="_blank"><em>términos de servicio</em> </a>
                             </b-card>
                         </form>
-                    </div>
-        </b-container>
-    </div>    
+                </b-col>
+        </b-row> 
+    </b-container>       
 </template>
 
 <script>
