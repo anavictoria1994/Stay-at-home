@@ -2,7 +2,9 @@
   <div id="app" color="#21B295">
     <b-navbar class="navegacion" toggleable="lg" type="dark">
     <div class="container">
-    <b-navbar-brand href="#">Stay at Home</b-navbar-brand>
+    <b-navbar-brand href="/">
+      Stay At Home
+    </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -105,5 +107,6 @@ export default {
 .nav-link{
   font: Arial;
 }
+
 
 </style>

@@ -39,10 +39,10 @@
           { key: 'Activo', sortable: false }
         ],
         items: [
-          { Activo: "Sí", Edad: 40, Nombre: 'Dickerson', Apellido: 'Macdonald' },
-          { Activo: "No", Edad: 21, Nombre: 'Larsen', Apellido: 'Shaw' },
-          { Activo: "No", Edad: 89, Nombre: 'Geneva', Apellido: 'Wilson' },
-          { Activo: "Sí", Edad: 38, Nombre: 'Jami', Apellido: 'Carney' }
+          { Activo: "Sí", Edad: 23, Nombre: 'Febe', Apellido: 'Gaviria' },
+          { Activo: "No", Edad: 21, Nombre: 'Juan', Apellido: 'Ballesteros' },
+          { Activo: "No", Edad: 27, Nombre: 'Ana', Apellido: 'Acuña' },
+          { Activo: "Sí", Edad: 26, Nombre: 'Hanier', Apellido: 'Peña' }
         ]
       }
     }

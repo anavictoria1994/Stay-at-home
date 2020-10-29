@@ -61,7 +61,7 @@
   <footer>
     <div class="row m-0 col-md-12" >
           <div class="d-inline-block col-md-4" >
-            <img class="logotipo-footer" src="../image/casa2.png" alt="logotipo">
+            <img class="logotipo-footer" src="../image/quedate-en-casa.png" alt="logotipo">
           </div>
           <div class="d-inline-block col-md-4">
             <h5 style="color:#fff;">QUÍENES SOMOS</h5>
@@ -107,8 +107,7 @@ footer{
 }
 
 footer .logotipo-footer{
-  width: 100px;
-  margin-bottom: 20px;
+  max-width: 50%;
 }
 footer p{
   color: #fff;
