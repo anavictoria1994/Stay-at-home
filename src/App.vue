@@ -17,7 +17,7 @@
       </b-navbar-nav>
       <b-navbar-nav v-if="!login">
         <b-nav-item >Sobre nosotros </b-nav-item>
-        <b-nav-item >Sobre nosotros </b-nav-item>
+        <b-nav-item >Sobre febe </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
       
