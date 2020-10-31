@@ -96,6 +96,7 @@ export default {
                         solid : true
                     });
                 }else{
+                    console.log(this.form)
                     this.$bvToast.toast(res.data.msg, {
                         title: 'Error',
                         autoHidelay: 3000,

@@ -6,13 +6,24 @@
                     <form @submit="onSubmit" class="text-center form-control-md p-5" action="#!">
                         <div class="form-row mb-4">
                             <div class="col">
-                                <h6>   Enviaremos un enlace a tu correo para que recuperes tu contraseña   </h6>
+                                <h6> Enviaremos un enlace a tu correo para que recuperes tu contraseña   </h6>
                             </div>
                         </div>
                         <div class="form-row mb-4">
                             <div class="col">
                                 <b-form-input v-model="form.email" requiered placeholder="Ingresa tu correo electrónico"></b-form-input>
-                                <button class="btn btn-info my-4 btn-block" type="submit">Enviar</button>
+                               
+                                <b-button id="show-btn" @click="$bvModal.show('modal-confirm')" class="btn btn-info my-4 btn-block" type="submit">Enviar</b-button>
+                                <b-modal id="modal-confirm" hide-footer>
+                                    <template #modal-title>
+                                        Confirmación
+                                    </template>
+                                    <div class="d-block text-center">
+                                        <h3>Hemos enviado un correo con el enlace de recuperación</h3>
+                                    </div>
+                                    <b-button class="mt-3" block @click="$bvModal.hide('modal-confirm')">Cerrar</b-button>
+                                </b-modal>
+                                    
                             </div>
                         </div>
                     </form>
@@ -23,6 +34,8 @@
 </template>
 
 <script>
+import {API} from '../api'
+
     export default{
         name: 'recover',
         data(){
@@ -30,6 +43,19 @@
                 form:{
                 email:''
                 }
+            }
+        },
+        methods:{
+            async onSubmit(evt){
+                evt.preventDefault()
+                await API.post('forgotpass', this.form)
+                .then(res=>{
+                    console.log(res)
+                })
+                .catch(err=>{
+                    console.log(err)
+                })
+
             }
         }
     }

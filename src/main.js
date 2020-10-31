@@ -25,6 +25,7 @@ import clinicalHistory from './components/Historia-Clinica.vue'
 import localization from './components/Localization.vue'
 import chat from './components/Chat.vue'
 import pacientes from './components/Pacientes.vue'
+import recoverPass from './components/recoverPass.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -128,6 +129,11 @@ const router = new VueRouter({
             path: '/chat',
             name: 'chat',
             component: chat,
+        },
+        {
+            path: '/recoverPass',
+            name: 'recuperacion',
+            component: recoverPass
         }
     ]
 })
