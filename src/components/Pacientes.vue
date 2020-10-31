@@ -27,25 +27,45 @@
 </template>
 
 <script>
+import {API} from '../api'
+
     export default {
     data() {
       return {
-        sortBy: 'Edad',
+        sortBy: 'edad',
         sortDesc: false,
         fields: [
-          { key: 'Apellido', sortable: true },
-          { key: 'Nombre', sortable: true },
-          { key: 'Edad', sortable: true },
-          { key: 'Activo', sortable: false }
+          { key: 'apellidos', sortable: true },
+          { key: 'nombres', sortable: true },
+          { key: 'edad', sortable: true },
+          { key: 'isActive', sortable: false }
         ],
         items: [
-          { Activo: "Sí", Edad: 23, Nombre: 'Febe', Apellido: 'Gaviria' },
-          { Activo: "No", Edad: 21, Nombre: 'Juan', Apellido: 'Ballesteros' },
-          { Activo: "No", Edad: 27, Nombre: 'Ana', Apellido: 'Acuña' },
-          { Activo: "Sí", Edad: 26, Nombre: 'Hanier', Apellido: 'Peña' }
+          { isActive: true, edad: 23, nombres: 'Febe', apellidos: 'Gaviria' },
+          { isActive: false, edad: 21, nombres: 'Juan', apellidos: 'Ballesteros' },
+          { isActive: false, edad: 27, nombres: 'Ana', apellidos: 'Acuña' },
+          { isActive: true, edad: 26, nombres: 'Hanier', apellidos: 'Peña' }
         ]
       }
+    },
+    created(){
+        this.items.map((active)=>{
+            if(active.isActive){
+                active.isActive="Sí"
+            }
+            else{
+                active.isActive="No"
+            }
+        }),
+        API.post("paciente/get",{cedula:1})
+        .then(res=>{
+            //this.items=res.data.user.persona
+            console.log(res.data)
+        })
+        
+        .catch(err=>{console.log(err)})
     }
+    
   }
 </script>
 

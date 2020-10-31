@@ -11,11 +11,11 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav v-if="login">
         <b-nav-item ><router-link class="nav-link active" to = '/' > Inicio</router-link></b-nav-item>
-        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
+        <b-nav-item href="#"><router-link  class="nav-link active item-options selection" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
         <b-nav-item href="#" ><router-link  class="nav-link active" to= '/localization'>Tu ubicación</router-link></b-nav-item>
-        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/informes'>Informes</router-link></b-nav-item>
-        <b-nav-item href="#"><router-link  class="nav-link active" to= '/pacientes'>Pacientes</router-link></b-nav-item>
-        <b-nav-item href="#"><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
+        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/informes'>Informes</router-link></b-nav-item>
+        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/pacientes'>Pacientes</router-link></b-nav-item>
+        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
         <b-nav-item href="#" ><router-link  class="nav-link active" to= '/chat'>Chat</router-link></b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav v-if="!login">
@@ -108,5 +108,18 @@ export default {
   font: Arial;
 }
 
-
+.item-options:after {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+    transition: width .3s;
+}
+.item-options:hover::after {
+    background-color: #fff;
+    width: 100%;
+}
+.selection:active{
+  background-color: #2c3e50;
+}
 </style>
