@@ -24,6 +24,8 @@ import informes from './components/Informes.vue'
 import clinicalHistory from './components/Historia-Clinica.vue'
 import localization from './components/Localization.vue'
 import chat from './components/Chat.vue'
+import pacientes from './components/Pacientes.vue'
+import recoverPass from './components/recoverPass.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -44,6 +46,26 @@ const router = new VueRouter({
             path: '/informes',
             name: 'informes',
             component: informes,
+        },
+
+        {
+            path: '/pacientes',
+            component: pacientes,
+            beforeEnter: (to, from, next) => {
+                if (!sessionStorage.getItem('token')) {
+                    next({ name: 'login' })
+                } else {
+                    API.post('session', { token: sessionStorage.getItem('token') })
+                        .then(res => {
+                            console.log(res)
+                            if (res.data.user.tipo === 'D') {
+                                next()
+                            } else {
+                                next({ name: 'main' })
+                            }
+                        })
+                }
+            }
         },
 
         {
@@ -107,6 +129,11 @@ const router = new VueRouter({
             path: '/chat',
             name: 'chat',
             component: chat,
+        },
+        {
+            path: '/recoverPass',
+            name: 'recuperacion',
+            component: recoverPass
         }
     ]
 })

@@ -5,21 +5,22 @@
         <b-col cols="12" md="auto">
             <div class="panel-body">
                 <b-card img-alt="Card image" img-src = '../image/manos.jpg'>
-                                <form @submit="onSubmit">
-                                    <div class="form-row mb-4">
-                                        <div class="col">
-                                            <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Correo"></b-form-input>
-                                        </div>
-                                    </div>
-                                    <div class="form-row mb-4">
-                                        <div class="col">
-                                            <b-form-input type="password" id="imputPass" v-model="form.pass" required placeholder="Contraseña"></b-form-input>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <b-button variant="info" type="submit">Iniciar Sesión</b-button>
-                                    </div>
-                                </form>
+                    <form @submit="onSubmit">
+                        <div class="form-row mb-4">
+                             <div class="col">
+                                <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Correo"></b-form-input>
+                            </div>
+                        </div>
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <b-form-input type="password" id="imputPass" v-model="form.pass" required placeholder="Contraseña"></b-form-input>
+                                <a href="" target="_blank"><router-link  class="nav-link active" to= '/recover'>¿Olvidaste tu contraseña?</router-link></a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <b-button variant="info" type="submit">Iniciar Sesión</b-button>
+                        </div>
+                    </form>
                 </b-card>   
             </div>    
         </b-col>
@@ -74,6 +75,7 @@ export default {
 </script>
 
 <style>
+
 
 .login{
     width: 100%;
