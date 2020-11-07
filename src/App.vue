@@ -1,45 +1,58 @@
 <template>
   <div id="app" color="#21B295">
     <b-navbar class="navegacion" toggleable="lg" type="dark">
-    <div class="container">
-    <b-navbar-brand href="/">
-      Stay At Home
-    </b-navbar-brand>
+      <b-navbar-brand class="marcaInicio">
+        <router-link class="active" to="/">
+          <img src="./image/stay-header.png" width="150" height="70" class="d-inline-block align-left" alt="Stay">
+        </router-link>
+      </b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav v-if="login">
-        <b-nav-item ><router-link class="nav-link active" to = '/' > Inicio</router-link></b-nav-item>
-        <b-nav-item href="#"><router-link  class="nav-link active item-options selection" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
-        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/localization'>Tu ubicación</router-link></b-nav-item>
-        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/informes'>Informes</router-link></b-nav-item>
-        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/pacientes'>Pacientes</router-link></b-nav-item>
-        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
-        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/chat'>Chat</router-link></b-nav-item>
-      </b-navbar-nav>
-      <b-navbar-nav v-if="!login">
-        <b-nav-item >Sobre nosotros </b-nav-item>
-        <b-nav-item >Sobre nosotros </b-nav-item>
-      </b-navbar-nav>
-      <b-navbar-nav class="ml-auto">
-      
-        <b-nav-item-dropdown right>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav v-if="login" class="ml-2">
+          <b-nav-item ><router-link class="nav-link active item-options selection" to = '/' > Inicio</router-link></b-nav-item>
+          <b-nav-item href="#"><router-link  class="nav-link active item-options selection" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
+          <b-nav-item href="#" ><router-link  class="nav-link active item-options selection" to= '/localization'>Tu ubicación</router-link></b-nav-item>
+          <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/informes'>Informes</router-link></b-nav-item>
+          <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/pacientes'>Pacientes</router-link></b-nav-item>
+          <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/register'>Registrar</router-link></b-nav-item>
+          <b-nav-item href="#" ><router-link  class="nav-link active item-options selection" to= '/chat'>Chat</router-link></b-nav-item>
+        </b-navbar-nav>
+        
+        <!-- NAV BAR SIN INICIAR SESION -->
+        <b-navbar-nav v-if="!login">
+          <b-nav-item href="/" class="active">Inicio</b-nav-item>
+
+          <!-- Navbar dropdowns -->
+          <b-nav-item-dropdown text="Líneas de Atención" right class="active">
+            <b-dropdown-item href="#">EN</b-dropdown-item>
+            <b-dropdown-item href="#">ES</b-dropdown-item>
+            <b-dropdown-item href="#">RU</b-dropdown-item>
+            <b-dropdown-item href="#">FA</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+
+
+        <b-navbar-nav class="ml-auto">
           <template v-slot:button-content>
-            <em>{{ user }} </em>
-          </template>
+              <em>{{ user }} </em>
+            </template>
           <div v-if="!login">
-            <b-dropdown-item><router-link to= '/login'>Login</router-link></b-dropdown-item>
+              <b-button variant="info" href="/login" >{{user}}</b-button>
           </div>
           <div v-if="login">
-            <b-dropdown-item href="#">Perfil</b-dropdown-item>
-            <b-dropdown-item v-on:click = "logout">Salir</b-dropdown-item>
+              <b-nav-item-dropdown right>
+                <template v-slot:button-content>
+                  <em>{{ user }} </em>
+                </template>
+                <b-dropdown-item href="#">Perfil</b-dropdown-item>
+                <b-dropdown-item v-on:click = "logout">Salir</b-dropdown-item>
+              </b-nav-item-dropdown>
           </div>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-    </div>
-  </b-navbar>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
    <router-view></router-view>
   </div>
 </template>
@@ -48,11 +61,12 @@
 
 import { API } from './api'
 export default {
+  
   inheritAttrs: true,
   name: 'App',
   data(){
     return({
-      user : 'Usuario',
+      user : 'Iniciar Sesión',
       login: false,
       tipo: 'P'
     })
@@ -122,4 +136,15 @@ export default {
 .selection:active{
   background-color: #2c3e50;
 }
+.dropdown-diagnostico{
+  pointer-events: inherit;
+  position: relative;
+  display: inline-block;
+  border: 0ch;
+}
+.dropdown-diagnostico:hover {
+  display: block;
+}
+
+
 </style>
