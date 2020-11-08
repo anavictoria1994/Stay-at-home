@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
+import VueSocketIO from 'vue-socket.io'
 import { API } from './api'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -13,6 +14,10 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueResource)
 Vue.use(VueRouter)
+Vue.use(new VueSocketIO({
+    debug: true,
+    connection: 'http://localhost:3000'
+}))
 
 
 //MODULOS
