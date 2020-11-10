@@ -23,14 +23,23 @@
         <!-- NAV BAR SIN INICIAR SESION -->
         <b-navbar-nav v-if="!login">
           <b-nav-item href="/" class="active">Inicio</b-nav-item>
-
+          <b-nav-item href="/" class="active">Autodiagnóstico</b-nav-item>
+          
           <!-- Navbar dropdowns -->
-          <b-nav-item-dropdown text="Líneas de Atención" right class="active">
-            <b-dropdown-item href="#">EN</b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
+
+          <div @mouseover="onOver1" @mouseleave="onLeave1">
+            <b-nav-item-dropdown id="dropQuestions" ref="dropdown1" text="Mitos y Preguntas" bottom class="active">
+              <b-dropdown-item href="#">Preguntas Frecuentes</b-dropdown-item>
+              <b-dropdown-item href="#">Mitos</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </div>
+
+          <div @mouseover="onOver" @mouseleave="onLeave">
+            <b-nav-item-dropdown id="dropAtention" ref="dropdown" text="Líneas de Atención" right class="active">
+              <b-dropdown-item href="#">Covid-19</b-dropdown-item>
+              <b-dropdown-item href="#">EPS</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </div>
         </b-navbar-nav>
 
 
@@ -42,13 +51,15 @@
               <b-button variant="info" href="/login" >{{user}}</b-button>
           </div>
           <div v-if="login">
-              <b-nav-item-dropdown right>
+            <div @mouseover="onOver" @mouseleave="onLeave">
+              <b-nav-item-dropdown right ref="dropdown" class="active">
                 <template v-slot:button-content>
                   <em>{{ user }} </em>
                 </template>
                 <b-dropdown-item href="#">Perfil</b-dropdown-item>
                 <b-dropdown-item v-on:click = "logout">Salir</b-dropdown-item>
               </b-nav-item-dropdown>
+            </div>
           </div>
         </b-navbar-nav>
       </b-collapse>
@@ -99,7 +110,26 @@ export default {
             }
             })
         .catch(err => console.log(err));
+    },
+    //dropdown desplegable
+    onOver() {
+          this.$refs.dropdown.visible = true;
+    },
+    onLeave() {
+          this.$refs.dropdown.visible = false;
+    },
+    ////-- finish here -- /////
+
+    //dropdown1 desplegable
+    onOver1(){
+        this.$refs.dropdown1.visible = true;
+    },
+
+    onLeave1(){
+        this.$refs.dropdown1.visible = false;
     }
+    ////-- finish here -- /////
+
   }
 } 
 
