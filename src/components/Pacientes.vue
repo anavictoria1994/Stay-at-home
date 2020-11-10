@@ -48,7 +48,22 @@ import {API} from '../api'
         ]
       }
     },
-    created(){
+    async created(){
+        await API.post("paciente/get",{cedula:1})
+        .then(res=>{
+            res.data.map(paciente => { 
+                this.items.push(
+                    {
+                        isActive: paciente.isActive,
+                        edad: new Date().getFullYear() - new Date(paciente.fecha_nacimiento).getFullYear(), 
+                        nombres: paciente.persona.nombres,
+                        apellidos: paciente.persona.apellidos
+                    }
+                )
+                });
+        })
+        .catch(err=>{console.log(err)})
+        
         this.items.map((active)=>{
             if(active.isActive){
                 active.isActive="Sí"
@@ -56,14 +71,8 @@ import {API} from '../api'
             else{
                 active.isActive="No"
             }
-        }),
-        API.post("paciente/get",{cedula:1})
-        .then(res=>{
-            //this.items=res.data.user.persona
-            console.log(res.data)
         })
         
-        .catch(err=>{console.log(err)})
     }
     
   }

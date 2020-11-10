@@ -1,6 +1,7 @@
 <template>
   <div id="app" color="#21B295">
     <b-navbar class="navegacion" toggleable="lg" type="dark">
+<<<<<<< HEAD
       <b-navbar-brand class="marcaInicio">
         <router-link class="active" to="/">
           <img src="./image/stay-header.png" width="150" height="70" class="d-inline-block align-left" alt="Stay">
@@ -44,6 +45,32 @@
 
 
         <b-navbar-nav class="ml-auto">
+=======
+    <div class="container">
+    <b-navbar-brand href="/">
+      Stay At Home
+    </b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav v-if="login">
+        <b-nav-item ><router-link class="nav-link active" to = '/' > Inicio</router-link></b-nav-item>
+        <b-nav-item href="#"><router-link  class="nav-link active item-options selection" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
+        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/localization'>Tu ubicación</router-link></b-nav-item>
+        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/informes'>Informes</router-link></b-nav-item>
+        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/pacientes'>Pacientes</router-link></b-nav-item>
+        <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active" to= '/register'>Registrar</router-link></b-nav-item>
+        <b-nav-item href="#" ><router-link  class="nav-link active" to= '/chat'>Chat</router-link></b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav v-if="!login">
+        <b-nav-item >Sobre nosotros </b-nav-item>
+        <b-nav-item >Sobre febe </b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav class="ml-auto">
+      
+        <b-nav-item-dropdown right>
+>>>>>>> deploy
           <template v-slot:button-content>
               <em>{{ user }} </em>
             </template>
