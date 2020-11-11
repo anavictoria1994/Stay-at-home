@@ -1,25 +1,58 @@
+
 <template>
     <b-container>
+        <h2 class="titlepage" align="left">Pacientes</h2>
+        <hr>
+        <div class="row filterinput">
+            <b-col></b-col>
+            <b-col></b-col>
+            <b-col class="my-3">
+                <b-form-group
+                label="Filtrar"
+                label-cols-sm="3"
+                label-align-sm="right"
+                label-size="md"
+                label-for="filterInput"
+                class="mb-0"
+                >
+                <b-input-group size="md">
+                    <b-form-input
+                    v-model="filter"
+                    type="search"
+                    id="filterInput"
+                    placeholder="Escriba para buscar"
+                    ></b-form-input>
+                    <b-input-group-append>
+                    <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+                    </b-input-group-append>
+                </b-input-group>
+                </b-form-group>
+            </b-col>
+        </div>
         <b-row class="text-center" id="tabla">
             <b-col></b-col>
             <b-col cols="8">
-                <div class="tabla-pacientes">
-                    <h3 class="titulo-tabla">TABLA DE PACIENTES</h3>
-                    <div>
-                        <b-table
-                            :items="items"
-                            :fields="fields"
-                            :sort-by.sync="sortBy"
-                            :sort-desc.sync="sortDesc"
-                            responsive="sm"
-                        ></b-table>
+                <div>
+                    <b-jumbotron bg-variant="light">
+                        <div class="tabla-pacientes">
+                            <h3 class="titulo-tabla">TABLA DE PACIENTES</h3>
+                            <div>
+                                <b-table
+                                    :items="items"
+                                    :fields="fields"
+                                    :sort-by.sync="sortBy"
+                                    :sort-desc.sync="sortDesc"
+                                    responsive="sm"
+                                ></b-table>
 
-                        <div>
-                            Organizado por: <b>{{ sortBy }}</b>, Orden:
-                            <b>{{ sortDesc ? 'Descendente' : 'Ascendente' }}</b>
+                                <div>
+                                    Organizado por: <b>{{ sortBy }}</b>, Orden:
+                                    <b>{{ sortDesc ? 'Descendente' : 'Ascendente' }}</b>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </b-jumbotron>    
+                </div>        
             </b-col>
             <b-col></b-col>
         </b-row> 
@@ -80,12 +113,19 @@ import {API} from '../api'
 
 <style>
 .text-center{
-    padding-top: 10%;
     width: 100%;
     height: auto;
 }
 
 .titulo-tabla{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 2%;
 }
+.filterinput{
+    padding-bottom: 2%;
+}
+.titlepage{
+    padding-top: 2%;
+}
+
 </style>
