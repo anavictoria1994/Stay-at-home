@@ -24,7 +24,7 @@
             <div class="card">
               <!-- CARD HEADER-->
               <div class="card-header bg-success text-white">
-                <h4>{{ user }}</h4>
+                <h4>{{ userr }}</h4>
               </div>
 
               <!-- CARD BODY-->
@@ -39,7 +39,7 @@
               <!-- CARD FOOTER -->
               <form id="message-form" class="card-footer">
                 <div class="input-group">
-                  <input v-model="mensaje" placeholder="Text" />
+                  <input v-model="mensaje" class="form-control" placeholder="Text" />
                   <div class="input-group-append">
                     <b-button
                       type="submit"
@@ -47,7 +47,6 @@
                       class="btn btn-success"
                       >Enviar</b-button
                     >
-                    
                   </div>
                 </div>
               </form>
@@ -55,13 +54,18 @@
           </div>
 
           <!-- USERS SECTION-->
-          <div class="col-md-4">
+          <div class="col-md-4" v-if="tipo=='D'">
             <div class="card">
               <div class="card-header bg-success text-white">
                 <h3>Pacientes</h3>
               </div>
               <div class="card-body">
-                <div id="usernames"></div>
+                <div v-on:click="join" v-for="(usuario, idx) in usuarios" :key="idx" id="usernames">
+                  <b-button v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-4">
+                  {{usuario['persona']['nombres']}}
+                  </b-button>
+ 
+                </div>
               </div>
             </div>
           </div>
@@ -79,33 +83,58 @@ var messages = [
   { user: "esoo", text: "Holdo prueba" },
   { user: "esoo", text: "Holaaaaa haciendo prueba" },
 ];
+var usuarios = [];
+
 import { API } from "../api";
 export default {
   data() {
-    return {
+    return ({
       nuevoUser: "Ingreso alguien nuevo",
       messages: messages,
       name: "NOMBRE",
+      room: 0,
       mensaje: "",
-      user: "NOMBRE",
+      userr: "",
       tipo: "",
-    };
+      id:0,
+      usuarios: usuarios,
+      chatPer: 0
+    });
   },
-
-  mounted() {
-    try {
-      if (sessionStorage.getItem("token")) {
-        API.post("session", { token: sessionStorage.getItem("token") })
-          .then((res) => {
-            this.login = true;
-            this.user = res.data.user.nombres;
-            this.tipo = res.data.user.tipo;
-          })
-          .catch((err) => console.log(err));
+  created(){
+   
+    },
+  async mounted() {
+     try {
+        if (sessionStorage.getItem("token")) {
+          await API.post("session", { token: sessionStorage.getItem("token") })
+            .then((res) => {
+              this.login = true;
+              this.userr = res.data.user.nombres;
+              this.id = res.data.user.cedula;
+              this.tipo = res.data.user.tipo;
+            })
+            .catch((err) => console.log(err));
+        }
+      } catch (e) {
+        window.location.href = process.env.BASE_URL;
       }
-    } catch (e) {
-      window.location.href = process.env.BASE_URL;
-    }
+      if (this.tipo==='P'){
+        let idString = this.id.toString()
+        const { name, room } = { name: this.userr, room: idString };
+        this.$socket.emit("join", { name, room }, (error) => {
+        if (error) {
+          alert(error);
+        }
+      });
+      }
+      await API.post("paciente/get",{cedula:this.id})
+      .then(res=>{
+          this.usuarios = res.data
+      })
+      .catch(err=>{console.log(err)})
+        
+      console.log("///////", this.usuarios)
   },
 
   sockets: {
@@ -113,7 +142,7 @@ export default {
     /*connect: () => {
       
     },*/
-    connection: (data) => {
+    connection: (data) => {     
       console.log(data);
     },
     message: (data) => {
@@ -121,19 +150,23 @@ export default {
       messages.push(data);
     },
     roomData: (data) => {
-      console.log(data);
+     console.log(data);
     },
   },
   methods: {
-   prueba(evt) {
+
+   join(evt) {
       //Ingresar a la sala
-      evt.preventDefault();
-      const { name, room } = { name: this.name, room: "Prueba" };
+      evt.preventDefault();      
+      this.$socket.emit("disconnected")
+      let roomString = this.room.toString()
+      const { name, room } = { name: this.userr, room: roomString};
       this.$socket.emit("join", { name, room }, (error) => {
         if (error) {
           alert(error);
         }
       });
+      console.log(name, room)
     },
     msj(evt) {
       //Enviar mensaje
@@ -145,14 +178,20 @@ export default {
         }
       });
     },
+    roomPaciente(idPaciente){
+      this.room = idPaciente
+    }
   },
 };
 </script>
 
 <style>
+
 body {
   background-color: #ecf0f1;
 }
+
+
 
 #contentWrap {
   padding-top: 100px;
@@ -169,5 +208,8 @@ body {
 .whisper {
   color: gray;
   font-style: italic;
+}
+.borrar{
+  display: none;
 }
 </style>
