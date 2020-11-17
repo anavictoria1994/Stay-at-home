@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import VueSocketIO from 'vue-socket.io'
 import { API } from './api'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import VueChatScroll from 'vue-chat-scroll'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -14,6 +15,7 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueResource)
 Vue.use(VueRouter)
+Vue.use(VueChatScroll)
 Vue.use(new VueSocketIO({
     debug: true,
     connection: 'http://localhost:3000'

@@ -28,10 +28,10 @@
               </div>
 
               <!-- CARD BODY-->
-              <div id="chat" class="card-body">
-                <ul id="v-for-messages">
+              <div id="chat" class="card-body" v-chat-scroll="{always: false, smooth: true}">
+                <ul id="v-for-messages" style= "list-style: none;">
                   <li v-for="(chat, idx) in messages" :key="idx">
-                    {{ chat["text"] || nuevoUser }}
+                    {{chat.user}}: {{ chat["text"] }}
                   </li>
                 </ul>
               </div>
@@ -60,8 +60,8 @@
                 <h3>Pacientes</h3>
               </div>
               <div class="card-body">
-                <div v-on:click="join" v-for="(usuario, idx) in usuarios" :key="idx" id="usernames">
-                  <b-button v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-4">
+                <div v-on:click="join" v-for="(usuario, idx) in usuarios" :key="idx" id="usernames" style="padding-top: 5px">
+                  <b-button variant="success" v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-4" >
                   {{usuario['persona']['nombres']}}
                   </b-button>
  
@@ -79,17 +79,13 @@
 /*RECORDAR CAMBIAR EL V-FOR POR LA ADVERTENCIA DE LAS LLAVES*/
 
 // Variable donde se guardan los mensajes
-var messages = [
-  { user: "esoo", text: "Holdo prueba" },
-  { user: "esoo", text: "Holaaaaa haciendo prueba" },
-];
+var messages = [];
 var usuarios = [];
 
 import { API } from "../api";
 export default {
   data() {
     return ({
-      nuevoUser: "Ingreso alguien nuevo",
       messages: messages,
       name: "NOMBRE",
       room: 0,
@@ -170,6 +166,7 @@ export default {
     },
     msj(evt) {
       //Enviar mensaje
+      
       evt.preventDefault();
       console.log(this.messages);
       this.$socket.emit("sendMessage", this.mensaje, (error) => {
@@ -177,6 +174,7 @@ export default {
           alert(error);
         }
       });
+      this.mensaje = "";
     },
     roomPaciente(idPaciente){
       this.room = idPaciente
@@ -199,6 +197,7 @@ body {
 
 .card-body {
   height: 500px;
+  overflow: scroll;
 }
 
 .error {
