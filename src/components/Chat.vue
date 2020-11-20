@@ -1,20 +1,5 @@
 <template>
-  <!--
-    <div>
-        <h1> HOLA SOY CHAT PAGE </h1>
-       <input v-model = "name" placeholder="Name">
-        <input v-model = "mensaje" placeholder="Text">
-        <ul id= "v-for-messages">
-           <li v-for="( chat, idx )  in messages" :key="idx">
-                {{chat['text'] || nuevoUser}}
-            </li> 
-        </ul>
-        <b-button type="submit" v-on:click = "prueba">Entrar</b-button>
-        <b-button type="submit" v-on:click = "msj" class= "btn btn-success">Mensaje</b-button>
-        
-        
-    </div>
-   -->
+
   <body>
     <div class="container p-4">
       <!-- CHAT CONTAINER -->
@@ -29,11 +14,14 @@
 
               <!-- CARD BODY-->
               <div id="chat" class="card-body" v-chat-scroll="{always: false, smooth: true}">
-                <ul id="v-for-messages" style= "list-style: none;">
-                  <li v-for="(chat, idx) in messages" :key="idx">
-                    {{chat.user}}: {{ chat["text"] }}
-                  </li>
-                </ul>
+                  <div v-for="(chat, idx) in messages" :key="idx">                   
+                    <div :class="[chat.user==userr.toLowerCase()?'sent_msg':'received_msg']">
+                      <div class="received_width_mgs">
+                        <p>{{ chat["text"] }} </p>
+                        <br/>
+                      </div>
+                    </div>    
+                  </div>    
               </div>
 
               <!-- CARD FOOTER -->
@@ -60,9 +48,9 @@
                 <h3>Pacientes</h3>
               </div>
               <div class="card-body">
-                <div v-on:click="join" v-for="(usuario, idx) in usuarios" :key="idx" id="usernames" style="padding-top: 5px">
-                  <b-button variant="success" v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-4" >
-                  {{usuario['persona']['nombres']}}
+                <div v-on:click="join" v-for="(usuario, idx) in usuarios" :key="idx" id="usernames" >
+                  <b-button variant="success" v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-12">
+                  {{usuario['persona']['nombres']}} {{usuario['persona']['apellidos']}}
                   </b-button>
  
                 </div>
@@ -76,18 +64,23 @@
 </template>
 
 <script>
+
 /*RECORDAR CAMBIAR EL V-FOR POR LA ADVERTENCIA DE LAS LLAVES*/
 
 // Variable donde se guardan los mensajes
 var messages = [];
 var usuarios = [];
+var mensajeDerecha = false;
 
 import { API } from "../api";
+
 export default {
   data() {
     return ({
       messages: messages,
+      mensajeDerecha: mensajeDerecha,
       name: "NOMBRE",
+      apellidos: '',
       room: 0,
       mensaje: "",
       userr: "",
@@ -107,6 +100,7 @@ export default {
             .then((res) => {
               this.login = true;
               this.userr = res.data.user.nombres;
+              this.apellidos = res.data.user.apellidos;
               this.id = res.data.user.cedula;
               this.tipo = res.data.user.tipo;
             })
@@ -129,19 +123,14 @@ export default {
           this.usuarios = res.data
       })
       .catch(err=>{console.log(err)})
-        
-      console.log("///////", this.usuarios)
   },
 
   sockets: {
-    //Los console.log solo muestra las respuestas del servidor
-    /*connect: () => {
-      
-    },*/
+
     connection: (data) => {     
       console.log(data);
     },
-    message: (data) => {
+    message: (data) => { 
       console.log(data);
       messages.push(data);
     },
@@ -162,18 +151,15 @@ export default {
           alert(error);
         }
       });
-      console.log(name, room)
     },
     msj(evt) {
-      //Enviar mensaje
-      
+      //Enviar mensaje  
       evt.preventDefault();
-      console.log(this.messages);
       this.$socket.emit("sendMessage", this.mensaje, (error) => {
         if (error) {
           alert(error);
         }
-      });
+      });    
       this.mensaje = "";
     },
     roomPaciente(idPaciente){
@@ -188,8 +174,6 @@ export default {
 body {
   background-color: #ecf0f1;
 }
-
-
 
 #contentWrap {
   padding-top: 100px;
@@ -210,5 +194,35 @@ body {
 }
 .borrar{
   display: none;
+}
+.received_msg{
+padding-top:10px ;
+  padding: 0 0 0 10px;
+  vertical-align: top;
+}
+
+.received_width_mgs p{
+   background:  #e5e5ec none repeat scroll 0 0;
+  border-radius: 3px;
+  margin: 0;
+  padding: 10px 10px 5px 12px;
+  width: 44%;
+
+}
+.sent_msg p{
+  background: #0784f5 none repeat scroll 0 0;
+  color: white;
+  border-radius: 3px;
+  width: 50%;
+  margin-left: 50%;
+  padding: 5px 10px 5px 12px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+#usernames{
+  padding-top: 5px;
+  
 }
 </style>
