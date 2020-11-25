@@ -48,7 +48,7 @@ import {API} from '../api'
         methods:{
             async onSubmit(evt){
                 evt.preventDefault()
-                await API.post('forgotpass', this.form)
+                await API.post('recoverpass', this.form)
                 .then(res=>{
                     console.log(res)
                 })
