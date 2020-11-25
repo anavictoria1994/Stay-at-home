@@ -3,7 +3,7 @@
     <b-row class="justify-content-md-center" id="principal">
         <b-col col lg="2"></b-col>
         <b-col cols="12" md="auto">
-            <div class="panel-body">
+            <div class="panel-body" >
                 <b-card img-alt="Card image" img-src = '../image/manos.jpg'>
                     <form @submit="onSubmit">
                         <div class="form-row mb-4">
