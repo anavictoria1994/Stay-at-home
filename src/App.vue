@@ -16,7 +16,6 @@
           <b-nav-item href="#" ><router-link  class="nav-link active item-options selection" to= '/localization'>Tu ubicación</router-link></b-nav-item>
           <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/informes'>Informes</router-link></b-nav-item>
           <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/pacientes'>Pacientes</router-link></b-nav-item>
-          <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/register'>Registrar</router-link></b-nav-item>
           <b-nav-item href="#" ><router-link  class="nav-link active item-options selection" to= '/chat'>Chat</router-link></b-nav-item>
         </b-navbar-nav>
         
@@ -146,6 +145,7 @@ export default {
 
 .navegacion{
   background-color: #20BEC1;
+  width: 100%;
 }
 
 .nav-link{
@@ -166,15 +166,7 @@ export default {
 .selection:active{
   background-color: #2c3e50;
 }
-.dropdown-diagnostico{
-  pointer-events: inherit;
-  position: relative;
-  display: inline-block;
-  border: 0ch;
-}
-.dropdown-diagnostico:hover {
-  display: block;
-}
+
 
 
 </style>
