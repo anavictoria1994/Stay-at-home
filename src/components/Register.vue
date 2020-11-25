@@ -1,5 +1,7 @@
 ﻿<template>
-    <b-container> 
+    <b-container>
+        <h2 class="titlepage" align="left">Registrar Paciente</h2>
+        <hr> 
         <b-row class="justify-content-md-center" id="recover">
                 <b-col cols="12" md="auto">
                         <form @submit="onSubmit" class="text-center p-5" action="#!">
@@ -48,14 +50,7 @@
 
 
                                 <!-- Sign up button -->
-                                <button class="btn btn-info my-4 btn-block" type="submit">Registrarse</button>
-
-                                <hr>
-
-                                <!-- Terms of service -->
-                                <p>Al hacer clic en "Registrarse" </p>
-                                    <em>estás aceptando nuestros </em> 
-                                    <a href="" target="_blank"><em>términos de servicio</em> </a>
+                                <button class="btn btn-info my-4 btn-block" type="submit">Registrar Paciente</button>
                             </b-card>
                         </form>
                 </b-col>
@@ -84,6 +79,7 @@ export default {
         }
     },
     methods:{
+
         async onSubmit(evt){
             evt.preventDefault()
             await API.post('paciente/register', this.form)
@@ -114,7 +110,19 @@ export default {
                 });
                 console.log(e)
                 });
-        }
+
+            this.form.cedula = ''
+            this.form.nombres = ''
+            this.form.apellidos = ''
+            this.form.email = ''
+            this.form.pass = ''
+            this.form.fecha_nacimiento = ''
+            this.form.direccion = ''
+            this.form.telefono = ''
+
+        },
+        
+        
     },
     async mounted(){
         await API.post('session', {token: sessionStorage.getItem('token')})
