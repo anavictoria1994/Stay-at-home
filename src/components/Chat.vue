@@ -8,7 +8,7 @@
           <div class="col-md-8">
             <div class="card">
               <!-- CARD HEADER-->
-              <div class="card-header bg-success text-white">
+              <div class="card-header text-white" id="cabecera">
                 <h4>{{ userr }}</h4>
               </div>
 
@@ -32,7 +32,7 @@
                     <b-button
                       type="submit"
                       v-on:click="msj"
-                      class="btn btn-success"
+                      id="send-mess"
                       >Enviar</b-button
                     >
                   </div>
@@ -44,12 +44,12 @@
           <!-- USERS SECTION-->
           <div class="col-md-4" v-if="tipo=='D'">
             <div class="card">
-              <div class="card-header bg-success text-white">
+              <div class="card-header text-white" id="usuarios">
                 <h3>Pacientes</h3>
               </div>
               <div class="card-body">
                 <div v-on:click="join" v-for="(usuario, idx) in usuarios" :key="idx" id="usernames" >
-                  <b-button variant="success" v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-12">
+                  <b-button v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-12 text-black">
                   {{usuario['persona']['nombres']}} {{usuario['persona']['apellidos']}}
                   </b-button>
  
@@ -175,10 +175,6 @@ body {
   background-color: #ecf0f1;
 }
 
-#contentWrap {
-  padding-top: 100px;
-}
-
 .card-body {
   height: 500px;
   overflow: scroll;
@@ -213,10 +209,15 @@ padding-top:10px ;
   background: #0784f5 none repeat scroll 0 0;
   color: white;
   border-radius: 3px;
-  width: 50%;
+  width: 44%;
   margin-left: 50%;
-  padding: 5px 10px 5px 12px;
+  text-align: right;
 }
+
+.sent_msg{
+  width: wrap;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -224,5 +225,17 @@ padding-top:10px ;
 #usernames{
   padding-top: 5px;
   
+}
+#cabecera{
+  background-color: #AB9715;
+}
+#send-mess{
+  background-color: #AB9715;
+}
+#usuarios{
+  background-color: #AB9715;
+}
+#v-for-users{
+  background-color: #AB9715;
 }
 </style>
