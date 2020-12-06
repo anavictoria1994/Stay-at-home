@@ -47,7 +47,7 @@
               <em>{{ user }} </em>
             </template>
           <div v-if="!login">
-              <b-button variant="info" href="/login" >{{user}}</b-button>
+              <b-button variant="outline-light" href="/login" >{{user}}</b-button>
           </div>
           <div v-if="login">
             <div @mouseover="onOver" @mouseleave="onLeave">
@@ -144,7 +144,7 @@ export default {
 }
 
 .navegacion{
-  background-color: #20BEC1;
+  background-color: #80142F;
   width: 100%;
 }
 
@@ -164,7 +164,12 @@ export default {
     width: 100%;
 }
 .selection:active{
-  background-color: #2c3e50;
+  background-color: #AB9715;
+}
+body{
+  background-color: white;
+
+  
 }
 
 
