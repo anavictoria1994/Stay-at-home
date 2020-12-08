@@ -7,7 +7,7 @@
                 <b-col :xs="12" :lg="6">
                     <!--BOTÓN DE REGISTRAR PACIENTE -->
                     <div class="registerbutton">
-                        <b-button variant="info" href="/register" align="left">Registrar nuevo paciente</b-button>
+                        <b-button href="/register" class="colorbtn" align="left">Registrar nuevo paciente</b-button>
                     </div>
                 </b-col>
                 <b-col :xs="12" :lg="6">
@@ -203,5 +203,20 @@ table#table-transition .flip-list-move {
 .pagination-view{
     padding-top: 2%;
 }
+
+.page-item.active .page-link {  
+    background-color: #3B72DF !important;  
+    border-color: #3B72DF !important;  
+}
+
+.colorbtn{
+    background-color: #3B72DF;
+    border-bottom-color: #3B72DF;
+}
+.colorbtn:hover{
+    background-color: #0038A7;
+    color: white;
+}
+
 
 </style>

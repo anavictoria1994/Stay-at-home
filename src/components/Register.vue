@@ -50,7 +50,7 @@
 
 
                                 <!-- Sign up button -->
-                                <button class="btn btn-info my-4 btn-block" type="submit">Registrar Paciente</button>
+                                <button class="btn btn-primary my-4 btn-block colorbtn" type="submit">Registrar Paciente</button>
                             </b-card>
                         </form>
                 </b-col>

@@ -15,7 +15,7 @@
                     </div>
                     <div class="form-row mb-4">
                         <div class="col">
-                            <b-button class="btn btn-info my-4 btn-block" type="submit">Confirmar</b-button>
+                            <b-button class="btn btn-info my-4 btn-block colorbtn" type="submit">Confirmar</b-button>
                         </div>
                     </div>
                 </form>
