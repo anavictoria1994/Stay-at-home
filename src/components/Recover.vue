@@ -13,7 +13,7 @@
                             <div class="col">
                                 <b-form-input v-model="form.email" requiered placeholder="Ingresa tu correo electrónico"></b-form-input>
                                
-                                <b-button id="show-btn" @click="$bvModal.show('modal-confirm')" class="btn btn-info my-4 btn-block" type="submit">Enviar</b-button>
+                                <b-button id="show-btn" @click="$bvModal.show('modal-confirm')" class="btn my-4 btn-block colorbtn" variant="primary" type="submit">Enviar</b-button>
                                 <b-modal id="modal-confirm" hide-footer>
                                     <template #modal-title>
                                         Confirmación
@@ -21,7 +21,7 @@
                                     <div class="d-block text-center">
                                         <h3>Hemos enviado un correo con el enlace de recuperación</h3>
                                     </div>
-                                    <b-button class="mt-3" block @click="$bvModal.hide('modal-confirm')">Cerrar</b-button>
+                                    <b-button class="mt-3 colorbtn" block @click="$bvModal.hide('modal-confirm')">Cerrar</b-button>
                                 </b-modal>
                                     
                             </div>

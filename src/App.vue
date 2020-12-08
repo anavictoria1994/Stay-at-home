@@ -144,7 +144,7 @@ export default {
 }
 
 .navegacion{
-  background-color: #80142F;
+  background-color: #0038A7;
   width: 100%;
 }
 
@@ -160,11 +160,12 @@ export default {
     transition: width .3s;
 }
 .item-options:hover::after {
-    background-color: #fff;
+    background-color: #DF993B;
     width: 100%;
 }
 .selection:active{
-  background-color: #AB9715;
+  background-color: #DF993B;
+  
 }
 body{
   background-color: white;
