@@ -101,7 +101,7 @@ export default {
 }
 
 footer{
-  background-color: #80142F;
+  background-color: #0038A7;
   padding: 50px 0;
   text-align: center;
 }

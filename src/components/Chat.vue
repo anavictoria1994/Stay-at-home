@@ -172,11 +172,11 @@ export default {
 <style>
 
 body {
-  background-color: #ecf0f1;
+  background-color: white;
 }
 
-.card-body {
-  height: 500px;
+#chat {
+  height: 412px;
   overflow: scroll;
 }
 
@@ -227,15 +227,15 @@ padding-top:10px ;
   
 }
 #cabecera{
-  background-color: #AB9715;
+  background-color: #3B72DF;
 }
 #send-mess{
-  background-color: #AB9715;
+  background-color: #3B72DF;
 }
 #usuarios{
-  background-color: #AB9715;
+  background-color: #3B72DF;
 }
 #v-for-users{
-  background-color: #AB9715;
+  background-color: #3B72DF;
 }
 </style>
