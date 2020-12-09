@@ -28,7 +28,7 @@
           <div @mouseover="onOver1" @mouseleave="onLeave1">
             <b-nav-item-dropdown id="dropQuestions" ref="dropdown1" text="Mitos y Preguntas" bottom class="active">
               <b-dropdown-item href="/preguntas">Preguntas Frecuentes</b-dropdown-item>
-              <b-dropdown-item href="#">Mitos</b-dropdown-item>
+              <b-dropdown-item href="/mitos">Mitos</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
 
