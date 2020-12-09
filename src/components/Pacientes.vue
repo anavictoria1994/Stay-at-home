@@ -106,6 +106,7 @@ import {API} from '../api'
           { key: 'nombres', sortable: true },
           { key: 'edad', sortable: true },
           { key: 'activo', sortable: false },
+          { key: 'cedula', sortable: true},
           { key: 'acciones', sortable: false}
         ],
         items: [],

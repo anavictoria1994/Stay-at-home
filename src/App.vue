@@ -12,7 +12,6 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav v-if="login" class="ml-2">
           <b-nav-item ><router-link class="nav-link active item-options selection" to = '/' > Inicio</router-link></b-nav-item>
-          <b-nav-item href="#"><router-link  class="nav-link active item-options selection" to= '/historia-clinica'>Historia Clínica</router-link></b-nav-item>
           <b-nav-item href="#" ><router-link  class="nav-link active item-options selection" to= '/localization'>Tu ubicación</router-link></b-nav-item>
           <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/informes'>Informes</router-link></b-nav-item>
           <b-nav-item href="#" v-if="tipo=='D'"><router-link  class="nav-link active item-options selection" to= '/pacientes'>Pacientes</router-link></b-nav-item>
@@ -22,13 +21,13 @@
         <!-- NAV BAR SIN INICIAR SESION -->
         <b-navbar-nav v-if="!login">
           <b-nav-item href="/" class="active">Inicio</b-nav-item>
-          <b-nav-item href="/" class="active">Autodiagnóstico</b-nav-item>
+          <b-nav-item href="/autodiagnostic" class="active">Autodiagnóstico</b-nav-item>
           
           <!-- Navbar dropdowns -->
 
           <div @mouseover="onOver1" @mouseleave="onLeave1">
             <b-nav-item-dropdown id="dropQuestions" ref="dropdown1" text="Mitos y Preguntas" bottom class="active">
-              <b-dropdown-item href="#">Preguntas Frecuentes</b-dropdown-item>
+              <b-dropdown-item href="/preguntas">Preguntas Frecuentes</b-dropdown-item>
               <b-dropdown-item href="#">Mitos</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>

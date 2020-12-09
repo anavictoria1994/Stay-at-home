@@ -4,7 +4,7 @@
             <hr>
             <b-row class="filterinput">
                 <b-col :xs="12" :lg="6">
-                    <!--BOTÓN DE REGISTRAR PACIENTE -->
+                    <!--BOTÓN DE REGISTRAR INFORME -->
                     <div class="registerbutton">
                         <b-button href="/newInforme" class="colorbtn" align="left" variant="primary">
                             <b-icon icon="file-earmark-plus" aria-hidden="true"></b-icon> Nuevo informe
@@ -14,24 +14,24 @@
                 <b-col :xs="12" :lg="6">
                     <!-- BARRA DE BÚSQUEDA -->
                     <b-form-group
-                    label="Filtrar"
-                    label-cols-sm="3"
-                    label-align-sm="right"
-                    label-size="md"
-                    label-for="filterInput"
-                    class="mb-0"
+                        label="Filtrar"
+                        label-cols-sm="3"
+                        label-align-sm="right"
+                        label-size="md"
+                        label-for="filterInput"
+                        class="mb-0"
                     >
-                    <b-input-group size="md">
-                        <b-form-input
-                        v-model="filter"
-                        type="search"
-                        id="filterInput"
-                        placeholder="Escriba para buscar"
-                        ></b-form-input>
-                        <b-input-group-append>
-                            <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
-                        </b-input-group-append>
-                    </b-input-group>
+                        <b-input-group size="md">
+                            <b-form-input
+                            v-model="filter"
+                            type="search"
+                            id="filterInput"
+                            placeholder="Escriba para buscar"
+                            ></b-form-input>
+                            <b-input-group-append>
+                                <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+                            </b-input-group-append>
+                        </b-input-group>
                     </b-form-group>
                     <!--TERMINA AQUÍ -->
                 </b-col>
@@ -41,7 +41,7 @@
                     <b-col :xs="10" :lg="8">
                         <div id="tabla-informes">
                             <h3 class="titulo-tabla">TABLA DE INFORMES</h3>
-                                <!--TABLA DE PACIENTES-->
+                                <!--TABLA DE INFORMES-->
                                 <b-table
                                     id="table-transition"
                                     :items="items"
