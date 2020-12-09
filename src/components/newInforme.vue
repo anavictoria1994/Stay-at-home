@@ -7,17 +7,6 @@
                     <form @submit="onSubmit">
                         <div>
                             <div class="form-row mb-4">
-                                <div class="col">
-                                    <b-form-datepicker 
-                                        id="fecha"
-                                        v-model="form.date"
-                                        class="mb-2"
-                                        required="Este campo es obligatorio"
-                                        placeholder="Fecha"
-                                    >
-                                    </b-form-datepicker>
-                                </div>
-                                <div class="col">
                                     <b-form-input
                                         v-model="form.cdeula"
                                         required="este campo es necesario"
@@ -25,7 +14,6 @@
                                         type="number"
                                     >
                                     </b-form-input>
-                                </div>
                             </div>
                         </div>
                         <div>

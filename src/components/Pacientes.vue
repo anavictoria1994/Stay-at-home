@@ -126,7 +126,7 @@ import {API} from '../api'
                         edad: new Date().getFullYear() - new Date(paciente.fecha_nacimiento).getFullYear(), 
                         nombres: paciente.persona.nombres,
                         apellidos: paciente.persona.apellidos,
-                        cedula: paciente.persona.cedula
+                        cedula: paciente.cedulaP
                     }
                 )
                 });
