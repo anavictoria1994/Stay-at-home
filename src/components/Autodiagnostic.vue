@@ -24,7 +24,7 @@
                         <p></p>
                         <b-form-group align="left" label="Elija una opción">
                             <b-form-radio-group
-                                v-model="selected"
+                                v-model="selected1"
                                 :options="options"
                                 name="radios-stacked"
                                 stacked
@@ -99,6 +99,7 @@ export default {
         'Fatiga o decaimiento', 'Dolor de garganta', 'Disminución del sentido del gusto', 
         'Disminución del olfato'],
         selected: [],
+        selected1: '',
         allSelected: false,
         indeterminate: false
       }
