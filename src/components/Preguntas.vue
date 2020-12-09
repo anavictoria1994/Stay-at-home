@@ -9,7 +9,7 @@
                     img-alt="Card Image"
                     text-variant="white"
                 >
-                <h1 id="preguntas" align="left">Preguntas Frecuentes</h1>
+                <h2 id="preguntas" align="left">Preguntas Frecuentes</h2>
                 </b-card>
             </div>
             <div class="accordion" role="tablist">
@@ -61,7 +61,7 @@
 
 <style>
 #preguntas{
-    padding-top: 6%;
+    padding-top: 2%;
 }
 .analisis{
     padding-bottom: 10%;

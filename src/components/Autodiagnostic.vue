@@ -11,7 +11,7 @@
                     img-alt="Card Image"
                     text-variant="white"
                 >
-                <h1 align="left" id="titleauto" > Autodiagnóstico </h1>
+                <h2 align="left" id="titleauto" > Autodiagnóstico </h2>
                 </b-card>
                 <b-card-body>
                     <div class="question1" align="left">
