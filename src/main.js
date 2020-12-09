@@ -56,11 +56,6 @@ const router = new VueRouter({
             name: 'newInforme',
             component: newInforme,
         },
-        {
-            path: '/informes',
-            name: 'informes',
-            component: informes,
-        },
 
         {
             path: '/pacientes',
