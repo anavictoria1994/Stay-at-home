@@ -91,7 +91,6 @@ const router = new VueRouter({
                 }
             }
         },
-
         {
             path: '/pacientes',
             component: pacientes,
