@@ -1,5 +1,4 @@
 <template>
-    <b-container>
         <b-container d="informes" class="justify-content-center">
             <h2 class="titlepage" align="left">Informes</h2>
             <hr>
@@ -87,7 +86,6 @@
                     <b-col></b-col>
                 </b-row>
         </b-container>
-    </b-container>
 </template>
 <script>
 export default {
