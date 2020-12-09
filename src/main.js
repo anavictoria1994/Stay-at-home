@@ -19,7 +19,7 @@ Vue.use(VueChatScroll)
 console.log(API.base_url)
 Vue.use(new VueSocketIO({
     debug: true,
-    connection: process.env.NODE_ENV === 'production' ?
+    connection: process.env.NODE_ENV != 'production' ?
         'https://stay-at-home-back.herokuapp.com/' : 'http://localhost:3000/'
 }))
 
@@ -71,18 +71,51 @@ const router = new VueRouter({
             path: '/newInforme',
             name: 'newInforme',
             component: newInforme,
+            beforeEnter: (to, from, next) => {
+                if (!sessionStorage.getItem('token')) {
+                    next({ name: 'login' })
+                } else {
+                    API.post('session', { token: sessionStorage.getItem('token') })
+                        .then(res => {
+                            console.log(res)
+                            if (res.data.user.tipo === 'D') {
+                                next()
+                            } else {
+                                next({ name: 'main' })
+                            }
+                        })
+                }
+            }
         },
         {
             path: '/informes',
             name: 'informes',
             component: informes,
+            beforeEnter: (to, from, next) => {
+                if (!sessionStorage.getItem('token')) {
+                    next({ name: 'login' })
+                } else {
+                    API.post('session', { token: sessionStorage.getItem('token') })
+                        .then(res => {
+                            console.log(res)
+                            if (res.data.user.tipo === 'D') {
+                                next()
+                            } else {
+                                next({ name: 'main' })
+                            }
+                        })
+                }
+            }
         },
+<<<<<<< HEAD
         {
             path: '/autodiagnostic',
             name: 'autodiagnostic',
             component: autodiagnostic,
         },
 
+=======
+>>>>>>> b6f23e1e66449d6d7fe19ea95cda9f22788c5d94
         {
             path: '/pacientes',
             component: pacientes,
