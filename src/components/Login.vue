@@ -35,8 +35,8 @@ export default {
     data(){
         return{
             form: {
-                email:'prueba@gmail.com',
-                pass:'456'
+                email:'',
+                pass:''
             },
         }
     },
