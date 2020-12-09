@@ -35,7 +35,7 @@ import localization from './components/Localization.vue'
 import chat from './components/Chat.vue'
 import pacientes from './components/Pacientes.vue'
 import recoverPass from './components/recoverPass.vue'
-import newInfo from './components/newInforme.vue'
+import newInforme from './components/newInforme.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -52,9 +52,9 @@ const router = new VueRouter({
             component: login,
         },
         {
-            path: '/nuevo-informe',
-            name: 'nuevo-informe',
-            component: newInfo
+            path: '/newInforme',
+            name: 'newInforme',
+            component: newInforme,
         },
         {
             path: '/informes',
