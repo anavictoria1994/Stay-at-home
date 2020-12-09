@@ -13,7 +13,7 @@
                     </div>
                 </b-col>
                 <b-col :xs="12" :lg="6">
-
+                    
                 </b-col>
             </b-row>
         </b-container>
