@@ -107,15 +107,12 @@ const router = new VueRouter({
                 }
             }
         },
-<<<<<<< HEAD
         {
             path: '/autodiagnostic',
             name: 'autodiagnostic',
             component: autodiagnostic,
         },
 
-=======
->>>>>>> b6f23e1e66449d6d7fe19ea95cda9f22788c5d94
         {
             path: '/pacientes',
             component: pacientes,

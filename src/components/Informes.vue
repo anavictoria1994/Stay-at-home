@@ -6,11 +6,7 @@
                 <b-col :xs="12" :lg="6">
                     <!--BOTÓN DE REGISTRAR INFORME -->
                     <div class="registerbutton">
-<<<<<<< HEAD
-                        <b-button href="/newInformes" class="colorbtn" align="left" variant="primary">
-=======
                         <b-button href="/newInforme" class="colorbtn" align="left" variant="primary">
->>>>>>> b6f23e1e66449d6d7fe19ea95cda9f22788c5d94
                             <b-icon icon="file-earmark-plus" aria-hidden="true"></b-icon> Nuevo informe
                         </b-button>
                     </div>
