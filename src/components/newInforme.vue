@@ -51,6 +51,8 @@
     </b-container>
 </template>
 <script>
+import { API } from "../api";
+
 export default {
     data(){
         return{
@@ -59,6 +61,37 @@ export default {
                 cedula: '',
                 texto: ''
             }
+        }
+    },
+
+    async mounted(){
+    
+    },
+
+    methods:{
+
+        async onSubmit(evt){
+            evt.preventDefault()
+            await API.post("paciente/informe/registrar", this.form)
+            .then(res => {
+                if (res.data){
+                    this.$bvToast.toast("Agregado Informe", {
+                        title: 'Agregado',
+                        autoHidelay: 3000,
+                        variant : 'success',
+                        solid : true
+                    });
+                }
+            })
+            .catch(err =>{
+                this.$bvToast.toast('Desconectado del servidor', {
+                    title: 'Error',
+                    autoHidelay: 3000,
+                    variant : 'danger',
+                    solid : true
+                });
+                console.log(err)
+            });
         }
     }
 }

@@ -6,7 +6,7 @@
                 <b-col :xs="12" :lg="6">
                     <!--BOTÓN DE REGISTRAR PACIENTE -->
                     <div class="registerbutton">
-                        <b-button href="/newInfo" class="colorbtn" align="left" variant="primary">
+                        <b-button href="/newInforme" class="colorbtn" align="left" variant="primary">
                             <b-icon icon="file-earmark-plus" aria-hidden="true"></b-icon> Nuevo informe
                         </b-button>
                     </div>
@@ -88,6 +88,7 @@
         </b-container>
 </template>
 <script>
+import { API } from '../api'
 export default {
     data(){
         return{
@@ -107,7 +108,32 @@ export default {
             selectMode: 'single',
             filter: ""
         }  
-    }
+    },
+    async mounted(){
+        try {
+        if (sessionStorage.getItem("token")) {
+        await API.post("session", { token: sessionStorage.getItem("token") })
+            .then(async (resp) => {
+                await API.post('paciente/informe/get', {cedula:resp.data.user.cedula})
+                .then(res => {
+                    console.log(res.data)
+                    res.data.map(informe => { 
+                        this.items.push(
+                            {
+                                id: informe.idInforme,
+                                descripcion: informe.texto
+                            }
+                        )
+                        });
+                })
+                .catch(err => console.log(err))
+                })
+        .catch((err) => console.log(err));
+        }
+      } catch (e) {
+        window.location.href = process.env.BASE_URL;
+      }
+}
 }
 </script>
 
