@@ -36,6 +36,9 @@ import chat from './components/Chat.vue'
 import pacientes from './components/Pacientes.vue'
 import recoverPass from './components/recoverPass.vue'
 import newInforme from './components/newInforme.vue'
+import autodiagnostic from './components/Autodiagnostic.vue'
+import analisis from './components/Analisis.vue'
+import preguntas from './components/Preguntas.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -51,6 +54,19 @@ const router = new VueRouter({
             name: 'login',
             component: login,
         },
+
+        {
+            path: '/analisis',
+            name: 'analisis',
+            component: analisis
+        },
+
+        {
+            path: '/preguntas',
+            name: 'preguntas',
+            component: preguntas,
+        },
+
         {
             path: '/newInforme',
             name: 'newInforme',
@@ -60,6 +76,11 @@ const router = new VueRouter({
             path: '/informes',
             name: 'informes',
             component: informes,
+        },
+        {
+            path: '/autodiagnostic',
+            name: 'autodiagnostic',
+            component: autodiagnostic,
         },
 
         {
