@@ -23,6 +23,7 @@
                     </b>
                 </div>
             </b-col>
+            <hr>
             <b-col :xs="12" :lg="6">
                 <div class="mito">
                     <h3>MITO</h3>
@@ -53,6 +54,7 @@
                     </b>
                 </div>
             </b-col>
+            <hr>
             <b-col :xs="12" :lg="6">
                 <div class="mito1">
                     <h3>MITO</h3>
@@ -75,6 +77,6 @@
 }
 .mito1{
     padding: 8%;
-    background-color: lightgrey;
+    background-color: lightgray;
 }
 </style>

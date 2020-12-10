@@ -41,6 +41,7 @@ import analisis from './components/Analisis.vue'
 import preguntas from './components/Preguntas.vue'
 import mitos from './components/Mitos.vue'
 import covid19 from './components/Covid19.vue'
+import eps from './components/Eps.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -61,6 +62,12 @@ const router = new VueRouter({
             path: '/covid19',
             name: 'covid19',
             component: covid19,
+        },
+
+        {
+            path: '/eps',
+            name: 'eps',
+            component: eps,
         },
 
         {

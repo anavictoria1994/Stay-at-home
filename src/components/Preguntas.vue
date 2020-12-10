@@ -109,7 +109,6 @@
 </template>
 
 <style>
-
 .analisis{
     padding-bottom: 10%;
 }
