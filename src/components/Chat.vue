@@ -49,7 +49,7 @@
               </div>
               <div class="card-body">
                 <div v-on:click="join" v-for="(usuario, idx) in usuarios" :key="idx" id="usernames" >
-                  <b-button v-on:click="roomPaciente(usuario['cedulaP'])" id="v-for-users" class = "col-md-12 text-black">
+                  <b-button v-on:click="roomPaciente(usuario['cedulaP'], usuario['persona']['nombres'])" id="v-for-users" class = "col-md-12 text-black">
                   {{usuario['persona']['nombres']}} {{usuario['persona']['apellidos']}}
                   </b-button>
  
@@ -162,8 +162,9 @@ export default {
       });    
       this.mensaje = "";
     },
-    roomPaciente(idPaciente){
+    roomPaciente(idPaciente, nomPaciente){
       this.room = idPaciente
+      this.userr = nomPaciente
     }
   },
 };
