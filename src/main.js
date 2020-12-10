@@ -39,6 +39,8 @@ import newInforme from './components/newInforme.vue'
 import autodiagnostic from './components/Autodiagnostic.vue'
 import analisis from './components/Analisis.vue'
 import preguntas from './components/Preguntas.vue'
+import mitos from './components/Mitos.vue'
+import covid19 from './components/Covid19.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -53,6 +55,18 @@ const router = new VueRouter({
             path: '/login',
             name: 'login',
             component: login,
+        },
+
+        {
+            path: '/covid19',
+            name: 'covid19',
+            component: covid19,
+        },
+
+        {
+            path: '/mitos',
+            name: 'mitos',
+            component: mitos,
         },
 
         {

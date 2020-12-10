@@ -28,13 +28,13 @@
           <div @mouseover="onOver1" @mouseleave="onLeave1">
             <b-nav-item-dropdown id="dropQuestions" ref="dropdown1" text="Mitos y Preguntas" bottom class="active">
               <b-dropdown-item href="/preguntas">Preguntas Frecuentes</b-dropdown-item>
-              <b-dropdown-item href="#">Mitos</b-dropdown-item>
+              <b-dropdown-item href="/mitos">Mitos</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
 
           <div @mouseover="onOver" @mouseleave="onLeave">
             <b-nav-item-dropdown id="dropAtention" ref="dropdown" text="Líneas de Atención" right class="active">
-              <b-dropdown-item href="#">Covid-19</b-dropdown-item>
+              <b-dropdown-item href="/covid19">Covid-19</b-dropdown-item>
               <b-dropdown-item href="#">EPS</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
