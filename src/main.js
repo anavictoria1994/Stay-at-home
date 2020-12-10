@@ -6,6 +6,7 @@ import VueSocketIO from 'vue-socket.io'
 import { API } from './api'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueChatScroll from 'vue-chat-scroll'
+import * as VueGoogleMaps from 'vue2-google-maps';
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -16,12 +17,21 @@ Vue.use(IconsPlugin)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.use(VueChatScroll)
+Vue.use(VueGoogleMaps,{
+    load:{
+        key: 'AIzaSyD6gjsDIMwryH6tBF5U0eqH4KC-ML5tLV8',
+        libraries: 'geometry',
+    },
+});
 console.log(API.base_url)
+Vue.config.productionTip = false;
 Vue.use(new VueSocketIO({
     debug: true,
     connection: process.env.NODE_ENV === 'production' ?
         'https://stay-at-home-back.herokuapp.com/' : 'http://localhost:3000/'
 }))
+
+
 
 
 //MODULOS
@@ -35,6 +45,7 @@ import localization from './components/Localization.vue'
 import chat from './components/Chat.vue'
 import pacientes from './components/Pacientes.vue'
 import recoverPass from './components/recoverPass.vue'
+import Admin from './components/Admin.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -143,7 +154,16 @@ const router = new VueRouter({
             path: '/recoverPass',
             name: 'recuperacion',
             component: recoverPass
-        }
+        },
+        {
+            path: '/admin',
+            name: 'admin',
+            // route level code-splitting
+            // this generates a separate chunk (about.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: Admin
+          }
+
     ]
 })
 
