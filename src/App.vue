@@ -64,6 +64,7 @@
     </b-navbar>
    <router-view></router-view>
   </div>
+  
 </template>
 
 <script>

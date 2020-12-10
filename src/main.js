@@ -19,7 +19,7 @@ Vue.use(VueChatScroll)
 console.log(API.base_url)
 Vue.use(new VueSocketIO({
     debug: true,
-    connection: process.env.NODE_ENV != 'production' ?
+    connection: process.env.NODE_ENV === 'production' ?
         'https://stay-at-home-back.herokuapp.com/' : 'http://localhost:3000/'
 }))
 
