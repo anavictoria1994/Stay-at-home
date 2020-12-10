@@ -34,7 +34,7 @@
 
           <div @mouseover="onOver" @mouseleave="onLeave">
             <b-nav-item-dropdown id="dropAtention" ref="dropdown" text="Líneas de Atención" right class="active">
-              <b-dropdown-item href="#">Covid-19</b-dropdown-item>
+              <b-dropdown-item href="/covid19">Covid-19</b-dropdown-item>
               <b-dropdown-item href="#">EPS</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
