@@ -134,7 +134,32 @@ export default {
       } catch (e) {
         window.location.href = process.env.BASE_URL;
       }
-}
+      this.totalRows = this.items.length
+    },
+     computed: {
+      sortOptions() {
+        // Create an options list from our fields
+        return this.fields
+          .filter(f => f.sortable)
+          .map(f => {
+            return { text: f.label, value: f.key }
+          })
+      },
+      totalRows(){
+          return this.items.length
+      }
+    },
+    methods: {
+      onFiltered(filteredItems) {
+        // Trigger pagination to update the number of buttons/pages due to filtering
+        this.totalRows = filteredItems.length
+        this.currentPage = 1
+      },
+      onRowSelected(items) {
+        this.selected = items
+      }
+    }
+    
 }
 </script>
 
