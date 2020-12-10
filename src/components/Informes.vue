@@ -101,6 +101,8 @@ export default {
             ],
             items: [
                 {id: 1151962890, descripcion: 'El paciente tiene signos vitales estables'},
+                {id: 16776923, descripcion: 'El paciente tiene signos vitales estables'},
+                {id: 1151962890, descripcion: 'El paciente tiene signos vitales estables'},
                 {id: 16776923, descripcion: 'El paciente tiene signos vitales estables'}
             ],
             currentPage: 1,
@@ -116,7 +118,6 @@ export default {
             .then(async (resp) => {
                 await API.post('paciente/informe/get', {cedula:resp.data.user.cedula})
                 .then(res => {
-                    console.log(res.data)
                     res.data.map(informe => { 
                         this.items.push(
                             {
