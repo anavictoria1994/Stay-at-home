@@ -7,11 +7,10 @@
             <b-col :xs="12" :lg="10">
                 <b-card
                     overlay
-                    img-src="../image/coronavirus_portada.jpg"
+                    img-src="../image/coronavirus_portada-auto.jpeg"
                     img-alt="Card Image"
                     text-variant="white"
                 >
-                <h2 align="left" id="titleauto" > Autodiagnóstico </h2>
                 </b-card>
                 <b-card-body>
                     <div class="question1" align="left">

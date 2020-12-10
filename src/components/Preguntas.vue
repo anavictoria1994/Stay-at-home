@@ -5,11 +5,10 @@
             <div>
                 <b-card
                     overlay
-                    img-src="../image/coronavirus_portada.jpg"
+                    img-src="../image/coronavirus_portada1.jpg"
                     img-alt="Card Image"
                     text-variant="white"
                 >
-                <h4 id="preguntas" align="left">Preguntas Frecuentes</h4>
                 </b-card>
             </div>
             <div class="accordion" role="tablist">
