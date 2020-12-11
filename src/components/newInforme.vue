@@ -8,7 +8,7 @@
                         <div>
                             <div class="form-row mb-4">
                                     <b-form-input
-                                        v-model="form.cdeula"
+                                        v-model="form.cedulaP"
                                         required="este campo es necesario"
                                         placeholder="ingrese la cédula del paciente"
                                         type="number"
@@ -46,7 +46,7 @@ export default {
         return{
             form: {
                 date: '',
-                cedula: '',
+                cedulaP: '',
                 texto: ''
             }
         }
