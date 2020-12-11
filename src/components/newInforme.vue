@@ -45,12 +45,7 @@ export default {
     data(){
         return{
             form: {
-<<<<<<< HEAD
-                cedula: '',
-=======
-                date: '',
                 cedulaP: '',
->>>>>>> f204f26e9c12bfe7eda67dd13299112971741d0a
                 texto: ''
             }
         }
