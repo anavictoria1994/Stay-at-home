@@ -45,7 +45,6 @@ export default {
     data(){
         return{
             form: {
-                date: '',
                 cedula: '',
                 texto: ''
             }
@@ -80,6 +79,9 @@ export default {
                 });
                 console.log(err)
             });
+
+            this.form.cedula = ''
+            this.form.texto = ''
         }
     }
 }

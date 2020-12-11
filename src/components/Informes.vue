@@ -29,7 +29,7 @@
                             placeholder="Escriba para buscar"
                             ></b-form-input>
                             <b-input-group-append>
-                                <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+                                <b-button :disabled="!filter" @click="filter = ''">Limpiar</b-button>
                             </b-input-group-append>
                         </b-input-group>
                     </b-form-group>
@@ -96,15 +96,9 @@ export default {
             sortDesc: false,
             fields: [
                 { key: 'id', sortable: true},
-                { key: 'descripcion', sortable:true},
-                { key: 'acciones', sortable:false}
+                { key: 'descripcion', sortable:true}
             ],
-            items: [
-                {id: 1151962890, descripcion: 'El paciente tiene signos vitales estables'},
-                {id: 16776923, descripcion: 'El paciente tiene signos vitales estables'},
-                {id: 1151962890, descripcion: 'El paciente tiene signos vitales estables'},
-                {id: 16776923, descripcion: 'El paciente tiene signos vitales estables'}
-            ],
+            items: [],
             currentPage: 1,
             perPage: 3,
             selectMode: 'single',
