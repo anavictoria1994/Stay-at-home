@@ -28,7 +28,7 @@
                         placeholder="Escriba para buscar"
                         ></b-form-input>
                         <b-input-group-append>
-                            <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+                            <b-button :disabled="!filter" @click="filter = ''">Limpiar</b-button>
                         </b-input-group-append>
                     </b-input-group>
                     </b-form-group>
