@@ -80,7 +80,7 @@ export default {
                 console.log(err)
             });
 
-            this.form.cedula = ''
+            this.form.cedulaP = ''
             this.form.texto = ''
         }
     }
