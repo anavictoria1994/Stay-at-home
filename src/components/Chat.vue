@@ -9,7 +9,7 @@
             <div class="card">
               <!-- CARD HEADER-->
               <div class="card-header text-white" id="cabecera">
-                <h4>{{ userr }}</h4>
+                <h4>{{ nombreUser }}</h4>
               </div>
 
               <!-- CARD BODY-->
@@ -84,6 +84,7 @@ export default {
       room: 0,
       mensaje: "",
       userr: "",
+      nombreUser : "",
       tipo: "",
       id:0,
       usuarios: usuarios,
@@ -110,6 +111,7 @@ export default {
         window.location.href = process.env.BASE_URL;
       }
       if (this.tipo==='P'){
+        this.nombreUser= this.userr
         let idString = this.id.toString()
         const { name, room } = { name: this.userr, room: idString };
         this.$socket.emit("join", { name, room }, (error) => {
@@ -164,7 +166,7 @@ export default {
     },
     roomPaciente(idPaciente, nomPaciente){
       this.room = idPaciente
-      this.userr = nomPaciente
+      this.nombreUser = nomPaciente
     }
   },
 };
