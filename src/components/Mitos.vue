@@ -2,11 +2,10 @@
     <b-container>
         <b-card
             overlay
-            img-src="../image/coronavirus_portada.jpg"
+            img-src="../image/coronavirus_portada2.jpg"
             img-alt="Card Image"
             text-variant="white"
         >
-            <h1 id="preguntas">Mitos y Realidades</h1>
         </b-card>
         <div class="row">
             <b-col :xs="12" :lg="6">

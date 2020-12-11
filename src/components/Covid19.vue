@@ -3,11 +3,10 @@
     <div>
         <b-card
             overlay
-            img-src="../image/coronavirus_portada.jpg"
+            img-src="../image/coronavirus_portada3.jpeg"
             img-alt="Card Image"
             text-variant="white"
         >
-        <h1 id="preguntas">Lineas de atención Secretarías de Salud</h1>
         </b-card>
     </div>
     <div class="fila1">
